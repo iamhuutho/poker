@@ -1,0 +1,1925 @@
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2231182887649420950)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (6.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.7ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+Migrating to CreateNewpokers (20240502082623)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (6.6ms)[0m  [1m[35mCREATE TABLE "newpokers" ("id" bigserial primary key, "cards" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240502082623') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(2231182887649420950)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-02 15:27:18 +0700
+  [1m[36mActiveRecord::SchemaMigration Load (2.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["1S 6S 7S 9H 9D", "9D 9S 9H 9C 12C", "13C 3D 4D 5D 8D", "1C 2D 7S 8F 9D", "6A 7D 4D 3D 10F 12F"], "newpoker"=>{"cards"=>["1S 6S 7S 9H 9D", "9D 9S 9H 9C 12C", "13C 3D 4D 5D 8D", "1C 2D 7S 8F 9D", "6A 7D 4D 3D 10F 12F"]}}
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 13.9ms | Allocations: 1114)
+
+
+Started GET "/api/v1/newpokers" for 127.0.0.1 at 2024-05-02 15:53:32 +0700
+Processing by Api::V1::NewpokersController#index as */*
+  Parameters: {"cards"=>["1S 6S 7S 9H 9D", "9D 9S 9H 9C 12C", "13C 3D 4D 5D 8D", "1C 2D 7S 8F 9D", "6A 7D 4D 3D 10F 12F"], "newpoker"=>{"cards"=>["1S 6S 7S 9H 9D", "9D 9S 9H 9C 12C", "13C 3D 4D 5D 8D", "1C 2D 7S 8F 9D", "6A 7D 4D 3D 10F 12F"]}}
+  [1m[36mNewpoker Load (21.0ms)[0m  [1m[34mSELECT "newpokers".* FROM "newpokers"[0m
+  ↳ app/controllers/api/v1/newpokers_controller.rb:6:in `index'
+Completed 404 Not Found in 37ms (Views: 0.1ms | ActiveRecord: 28.2ms | Allocations: 7518)
+
+
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-02 16:05:09 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["1S 6S 7S 9H 9D", "9D 9S 9H 9C 12C", "13C 3D 4D 5D 8D", "1C 2D 7S 8F 9D", "6A 7D 4D 3D 10F 12F"], "newpoker"=>{"cards"=>["1S 6S 7S 9H 9D", "9D 9S 9H 9C 12C", "13C 3D 4D 5D 8D", "1C 2D 7S 8F 9D", "6A 7D 4D 3D 10F 12F"]}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 827)
+
+
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-02 16:14:17 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["1S 6S 7S 8H 9D", "10D 11S 12H 13C 1C", "13C 3D 4D 5D 8D"], "newpoker"=>{"cards"=>["1S 6S 7S 8H 9D", "10D 11S 12H 13C 1C", "13C 3D 4D 5D 8D"]}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 744)
+
+
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-02 16:16:49 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["1S 6S 7S 8H 9D", "10D 11S 12H 13C 1C", "13C 3D 4D 5D 8D"], "newpoker"=>{"cards"=>["1S 6S 7S 8H 9D", "10D 11S 12H 13C 1C", "13C 3D 4D 5D 8D"]}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 10.4ms | Allocations: 1107)
+
+
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-02 16:17:07 +0700
+  
+SyntaxError (/Users/n.tho/Project/pokerApp/app/controllers/api/v1/newpokers_controller.rb:257: syntax error, unexpected backslash
+        print(cards\n)
+                   ^
+):
+  
+app/controllers/api/v1/newpokers_controller.rb:257: syntax error, unexpected backslash
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-02 16:17:17 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["1S 6S 7S 8H 9D", "10D 11S 12H 13C 1C", "13C 3D 4D 5D 8D"], "newpoker"=>{"cards"=>["1S 6S 7S 8H 9D", "10D 11S 12H 13C 1C", "13C 3D 4D 5D 8D"]}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 6.3ms | Allocations: 1126)
+
+
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-02 16:17:37 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["1S 6S 7S 8H 9D", "10D 11S 12H 13C 1C", "13C 3D 4D 5D 8D"], "newpoker"=>{"cards"=>["1S 6S 7S 8H 9D", "10D 11S 12H 13C 1C", "13C 3D 4D 5D 8D"]}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 3.2ms | Allocations: 1145)
+
+
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-02 16:19:10 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["1S 6S 7S 8H 9D", "10D 11S 12H 13C 1C", "13C 3D 4D 5D 8D"], "newpoker"=>{"cards"=>["1S 6S 7S 8H 9D", "10D 11S 12H 13C 1C", "13C 3D 4D 5D 8D"]}}
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 3.3ms | Allocations: 865)
+
+
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-02 16:21:06 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["1S 6S 7S 8H 9D", "10D 11S 12H 13C 1C", "13C 3D 4D 5D 8D"], "newpoker"=>{"cards"=>["1S 6S 7S 8H 9D", "10D 11S 12H 13C 1C", "13C 3D 4D 5D 8D"]}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 2.0ms | Allocations: 861)
+
+
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-02 16:21:19 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["1S 6S 7S 8H 9D", "10D 11S 12H 13C 1C", "13C 3D 4D 5D 8D"], "newpoker"=>{"cards"=>["1S 6S 7S 8H 9D", "10D 11S 12H 13C 1C", "13C 3D 4D 5D 8D"]}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 3.1ms | Allocations: 868)
+
+
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-02 16:22:20 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["1S 6S 7S 8H 9D", "10D 11S 12H 13C 1C", "13C 3D 4D 5D 8D"], "newpoker"=>{"cards"=>["1S 6S 7S 8H 9D", "10D 11S 12H 13C 1C", "13C 3D 4D 5D 8D"]}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 2.6ms | Allocations: 832)
+
+
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-02 16:22:28 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["1S 6S 7S 8H 9D", "10D 11S 12H 13C 1C", "13C 3D 4D 5D 8D"], "newpoker"=>{"cards"=>["1S 6S 7S 8H 9D", "10D 11S 12H 13C 1C", "13C 3D 4D 5D 8D"]}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 1.8ms | Allocations: 831)
+
+
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-02 16:23:23 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["1S 6S 7S 8H 9D", "10D 11S 12H 13C 1C", "13C 3D 4D 5D 8D"], "newpoker"=>{"cards"=>["1S 6S 7S 8H 9D", "10D 11S 12H 13C 1C", "13C 3D 4D 5D 8D"]}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 1.5ms | Allocations: 818)
+
+
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-02 16:27:06 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["1S 6S 7S 8H 9D", "10D 11S 12H 13C 1C", "13C 3D 4D 5D 8D", "13D 10D 12D 1D 11D"], "newpoker"=>{"cards"=>["1S 6S 7S 8H 9D", "10D 11S 12H 13C 1C", "13C 3D 4D 5D 8D", "13D 10D 12D 1D 11D"]}}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 1.6ms | Allocations: 2761)
+
+
+  
+NoMethodError (undefined method `zero?' for nil:NilClass
+
+            highest_comparison.zero? ? b[:x][:suit] <=> a[:x][:suit] : highest_comparison
+                              ^^^^^^):
+  
+app/controllers/api/v1/newpokers_controller.rb:46:in `block in create'
+app/controllers/api/v1/newpokers_controller.rb:43:in `sort'
+app/controllers/api/v1/newpokers_controller.rb:43:in `create'
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-02 16:27:58 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["1S 6S 7S 8H 9D", "10D 11S 12H 13C 1C", "13C 3D 4D 5D 8D", "13D 10D 12D 1D 11D"], "newpoker"=>{"cards"=>["1S 6S 7S 8H 9D", "10D 11S 12H 13C 1C", "13C 3D 4D 5D 8D", "13D 10D 12D 1D 11D"]}}
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 2.7ms | Allocations: 1103)
+
+
+  
+ArgumentError (comparison of Hash with Hash failed):
+  
+app/controllers/api/v1/newpokers_controller.rb:43:in `sort'
+app/controllers/api/v1/newpokers_controller.rb:43:in `create'
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-02 16:28:25 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["13D 10D 12D 1D 11D"], "newpoker"=>{"cards"=>["13D 10D 12D 1D 11D"]}}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 353)
+
+
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-02 16:28:40 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["1S 6S 7S 8H 9D", "10D 11S 12H 13C 1C", "13C 3D 4D 5D 8D", "13D 10D 12D 1D 11D"], "newpoker"=>{"cards"=>["1S 6S 7S 8H 9D", "10D 11S 12H 13C 1C", "13C 3D 4D 5D 8D", "13D 10D 12D 1D 11D"]}}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 1105)
+
+
+  
+ArgumentError (comparison of Hash with Hash failed):
+  
+app/controllers/api/v1/newpokers_controller.rb:43:in `sort'
+app/controllers/api/v1/newpokers_controller.rb:43:in `create'
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-02 16:29:11 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["13D 10D 12D 1D 11D"], "newpoker"=>{"cards"=>["13D 10D 12D 1D 11D"]}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 3.3ms | Allocations: 393)
+
+
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-02 16:30:47 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["13D 10D 12D 1D 11D"], "newpoker"=>{"cards"=>["13D 10D 12D 1D 11D"]}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 3.0ms | Allocations: 396)
+
+
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-02 16:32:00 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["13D 10D 12D 1D 11D"], "newpoker"=>{"cards"=>["13D 10D 12D 1D 11D"]}}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 2.8ms | Allocations: 4324)
+
+
+  
+NoMethodError (undefined method `to_i=' for "1":String
+
+                else cards[0][:value].to_i = 1
+                                     ^^^^^^^
+Did you mean?  to_i
+               to_f
+               to_c
+               to_r
+               to_d
+               to_s):
+  
+app/controllers/api/v1/newpokers_controller.rb:183:in `checkStraightFlush'
+app/controllers/api/v1/newpokers_controller.rb:168:in `checkRoyalFlush'
+app/controllers/api/v1/newpokers_controller.rb:138:in `check_hand'
+app/controllers/api/v1/newpokers_controller.rb:40:in `block in create'
+app/controllers/api/v1/newpokers_controller.rb:29:in `each'
+app/controllers/api/v1/newpokers_controller.rb:29:in `create'
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-02 16:32:21 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["13D 10D 12D 1D 11D"], "newpoker"=>{"cards"=>["13D 10D 12D 1D 11D"]}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 2.1ms | Allocations: 397)
+
+
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-02 16:32:30 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["13D 10D 12D 9D 11D"], "newpoker"=>{"cards"=>["13D 10D 12D 9D 11D"]}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 282)
+
+
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-02 16:37:06 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["8H 10H 11H 9H 12H"], "newpoker"=>{"cards"=>["8H 10H 11H 9H 12H"]}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 1.8ms | Allocations: 396)
+
+
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-02 16:37:17 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["13D 10D 11D 9D 12D"], "newpoker"=>{"cards"=>["13D 10D 11D 9D 12D"]}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 282)
+
+
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-02 17:01:50 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["2H 2C 4D 4H 9C", "1D 1C 6S 6D 13S", "13D 13S 3H 3C 8S"], "newpoker"=>{"cards"=>["2H 2C 4D 4H 9C", "1D 1C 6S 6D 13S", "13D 13S 3H 3C 8S"]}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 9.7ms | Allocations: 812)
+
+
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-02 17:06:57 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["2H 2C 4D 4H 9C", "1D 1C 6S 6D 13S", "13D 13S 3H 3C 8S"], "newpoker"=>{"cards"=>["2H 2C 4D 4H 9C", "1D 1C 6S 6D 13S", "13D 13S 3H 3C 8S"]}}
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 6.0ms | Allocations: 7992)
+
+
+  
+NameError (undefined local variable or method `single_values' for #<Api::V1::NewpokersController:0x00000000057530>
+
+                return { point: 3, highest_pair: pair_values[1].to_i, second_highest_pair: pair_values[0].to_i, single: single_values[0] }
+                                                                                                                        ^^^^^^^^^^^^^
+Did you mean?  singleton_class):
+  
+app/controllers/api/v1/newpokers_controller.rb:306:in `check2Pair'
+app/controllers/api/v1/newpokers_controller.rb:157:in `check_hand'
+app/controllers/api/v1/newpokers_controller.rb:39:in `block in create'
+app/controllers/api/v1/newpokers_controller.rb:28:in `each'
+app/controllers/api/v1/newpokers_controller.rb:28:in `create'
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-02 17:07:48 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["2H 2C 4D 4H 9C", "1D 1C 6S 6D 13S", "13D 13S 3H 3C 8S"], "newpoker"=>{"cards"=>["2H 2C 4D 4H 9C", "1D 1C 6S 6D 13S", "13D 13S 3H 3C 8S"]}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 1.6ms | Allocations: 810)
+
+
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-02 17:09:22 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["2H 2C 4D 4H 9C", "1D 1C 6S 6D 13S", "13D 13S 3H 3C 8S"], "newpoker"=>{"cards"=>["2H 2C 4D 4H 9C", "1D 1C 6S 6D 13S", "13D 13S 3H 3C 8S"]}}
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 2.6ms | Allocations: 811)
+
+
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-02 17:09:57 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["2H 2C 4D 4H 9C", "1D 1C 6S 6D 13S", "13D 13S 3H 3C 8S"], "newpoker"=>{"cards"=>["2H 2C 4D 4H 9C", "1D 1C 6S 6D 13S", "13D 13S 3H 3C 8S"]}}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 692)
+
+
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-02 17:19:53 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["2H 2C 4D 4H 9C", "1D 1C 6S 6D 13S", "13D 13S 3H 3C 8S"], "newpoker"=>{"cards"=>["2H 2C 4D 4H 9C", "1D 1C 6S 6D 13S", "13D 13S 3H 3C 8S"]}}
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 9.2ms | Allocations: 823)
+
+
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-02 17:20:28 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["2H 2C 4D 4H 9C", "1D 1C 6S 6D 13S", "13D 13S 3H 3C 8S"], "newpoker"=>{"cards"=>["2H 2C 4D 4H 9C", "1D 1C 6S 6D 13S", "13D 13S 3H 3C 8S"]}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 11.0ms | Allocations: 847)
+
+
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-02 17:20:57 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["2H 2C 4D 4H 9C", "1D 1C 6S 6D 13S", "13D 13S 3H 3C 8S"], "newpoker"=>{"cards"=>["2H 2C 4D 4H 9C", "1D 1C 6S 6D 13S", "13D 13S 3H 3C 8S"]}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 2.2ms | Allocations: 848)
+
+
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-02 17:27:41 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["2H 2C 4D 4H 9C", "1D 1C 6S 6D 13S", "13D 13S 3H 3C 8S"], "newpoker"=>{"cards"=>["2H 2C 4D 4H 9C", "1D 1C 6S 6D 13S", "13D 13S 3H 3C 8S"]}}
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 11.6ms | Allocations: 810)
+
+
+Started GET "/" for ::1 at 2024-05-02 17:28:12 +0700
+Processing by WebController#index as HTML
+  Rendering web/index.html.erb
+  Rendered web/index.html.erb (Duration: 1.1ms | Allocations: 542)
+Completed 200 OK in 9ms (Views: 2.9ms | ActiveRecord: 0.0ms | Allocations: 3116)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-02 17:28:22 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "message"=>"1C 2C 3C 4C 5C"}
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 296)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-02 17:28:30 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "message"=>"1C 2C 3C 4C 5C"}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 245)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-02 17:28:36 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "message"=>"1C 2C 3C 4C 5C"}
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 245)
+
+
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-02 17:35:01 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["2H 2C 4D 4H 9C", "1D 1C 6S 6D 13S", "13D 13S 3H 3C 8S"], "newpoker"=>{"cards"=>["2H 2C 4D 4H 9C", "1D 1C 6S 6D 13S", "13D 13S 3H 3C 8S"]}}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 694)
+
+
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-02 17:35:35 +0700
+Error occurred while parsing request parameters.
+Contents:
+
+{
+    "cards": [
+          "1H 1C 6D 5H 4C",
+          "1D 1C 6S 5D 4S",
+        ]
+}
+Processing by Api::V1::NewpokersController#create as */*
+Completed 400 Bad Request in 0ms (ActiveRecord: 0.0ms | Allocations: 722)
+
+
+  
+ActionDispatch::Http::Parameters::ParseError (Error occurred while parsing request parameters):
+  
+app/controllers/api/v1/newpokers_controller.rb:15:in `create'
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-02 17:35:55 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["1H 1C 6D 5H 4C", "1D 1S 6S 5D 4S"], "newpoker"=>{"cards"=>["1H 1C 6D 5H 4C", "1D 1S 6S 5D 4S"]}}
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 454)
+
+
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-02 17:36:40 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["1H 1C 6D 5H 4C", "1D 1S 9S 5D 4S"], "newpoker"=>{"cards"=>["1H 1C 6D 5H 4C", "1D 1S 9S 5D 4S"]}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 453)
+
+
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-02 17:37:59 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["1H 1C 6D 5H 4C", "1D 1S 9S 5D 4S", "1F 2D 3D 4D 5D"], "newpoker"=>{"cards"=>["1H 1C 6D 5H 4C", "1D 1S 9S 5D 4S", "1F 2D 3D 4D 5D"]}}
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 485)
+
+
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-02 17:52:15 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["1H 1C 6D 5H 4C", "1D 1S 9S 5D 4S", "1D 2D 3D 4D 5D"], "newpoker"=>{"cards"=>["1H 1C 6D 5H 4C", "1D 1S 9S 5D 4S", "1D 2D 3D 4D 5D"]}}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 9.4ms | Allocations: 2475)
+
+
+  
+NoMethodError (undefined method `+' for nil:NilClass
+
+            hashTable[card] += 1
+                            ^):
+  
+app/controllers/api/v1/newpokers_controller.rb:87:in `block in checkValidCardList'
+app/controllers/api/v1/newpokers_controller.rb:86:in `each'
+app/controllers/api/v1/newpokers_controller.rb:86:in `each_with_index'
+app/controllers/api/v1/newpokers_controller.rb:86:in `checkValidCardList'
+app/controllers/api/v1/newpokers_controller.rb:35:in `block in create'
+app/controllers/api/v1/newpokers_controller.rb:29:in `each'
+app/controllers/api/v1/newpokers_controller.rb:29:in `create'
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-02 17:52:53 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["1H 1C 6D 5H 4C", "1D 1S 9S 5D 4S", "1D 2D 3D 4D 5D"], "newpoker"=>{"cards"=>["1H 1C 6D 5H 4C", "1D 1S 9S 5D 4S", "1D 2D 3D 4D 5D"]}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 4.4ms | Allocations: 732)
+
+
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-02 17:53:31 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["1H 1C 6D 5H 4C", "1D 1S 9S 5D 4S", "1D 2D 3D 4D 5D"], "newpoker"=>{"cards"=>["1H 1C 6D 5H 4C", "1D 1S 9S 5D 4S", "1D 2D 3D 4D 5D"]}}
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 1.8ms | Allocations: 660)
+
+
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-02 17:53:43 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["1H 1C 6D 5H 4C", "1D 1S 9S 5D 4S", "1C 2D 3D 4C 5D"], "newpoker"=>{"cards"=>["1H 1C 6D 5H 4C", "1D 1S 9S 5D 4S", "1C 2D 3D 4C 5D"]}}
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 532)
+
+
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-02 17:53:51 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["1H 1C 6D 5H 4C", "1D 1S 9S 5D 4S", "1S 2D 3D 4C 5D"], "newpoker"=>{"cards"=>["1H 1C 6D 5H 4C", "1D 1S 9S 5D 4S", "1S 2D 3D 4C 5D"]}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 532)
+
+
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-02 17:54:08 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["1H 1C 6D 5H 4C", "1D 1S 9S 5D 4S", "1S 2D 3D 4C 5D"], "newpoker"=>{"cards"=>["1H 1C 6D 5H 4C", "1D 1S 9S 5D 4S", "1S 2D 3D 4C 5D"]}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 1.5ms | Allocations: 661)
+
+
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-02 17:54:16 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["1H 1C 6D 5H 4C", "1D 1S 9S 5D 4S", "1S 2D 3D 4C 5D"], "newpoker"=>{"cards"=>["1H 1C 6D 5H 4C", "1D 1S 9S 5D 4S", "1S 2D 3D 4C 5D"]}}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 532)
+
+
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-02 17:54:35 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["1H 1C 6D 5H 4C", "1D 1S 9S 5D 4S", "3S 2D 3D 4C 5D"], "newpoker"=>{"cards"=>["1H 1C 6D 5H 4C", "1D 1S 9S 5D 4S", "3S 2D 3D 4C 5D"]}}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 535)
+
+
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 08:56:08 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["2H 2C 4D 5H 9C", "1D 1C 6S 7D 13S", "13D 13S 3H 7C 8S"], "newpoker"=>{"cards"=>["2H 2C 4D 5H 9C", "1D 1C 6S 7D 13S", "13D 13S 3H 7C 8S"]}}
+Completed 200 OK in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 537)
+
+
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 09:00:12 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["2H 2C 4D 4H 9C", "1D 1C 6S 6D 13S", "13D 13S 3H 3C 8S"], "newpoker"=>{"cards"=>["2H 2C 4D 4H 9C", "1D 1C 6S 6D 13S", "13D 13S 3H 3C 8S"]}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 5.4ms | Allocations: 686)
+
+
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 09:03:57 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["2H 2C 4D 4H 4C", "1D 5C 6S 6D 6S", "1D 11C 12S 1D 1S"], "newpoker"=>{"cards"=>["2H 2C 4D 4H 4C", "1D 5C 6S 6D 6S", "1D 11C 12S 1D 1S"]}}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms | Allocations: 2693)
+
+
+  
+NoMethodError (undefined method `has_key?' for nil:NilClass
+
+            if hashTable.has_key?(card)
+                        ^^^^^^^^^):
+  
+app/controllers/api/v1/newpokers_controller.rb:87:in `block in checkValidCardList'
+app/controllers/api/v1/newpokers_controller.rb:86:in `each'
+app/controllers/api/v1/newpokers_controller.rb:86:in `each_with_index'
+app/controllers/api/v1/newpokers_controller.rb:86:in `checkValidCardList'
+app/controllers/api/v1/newpokers_controller.rb:35:in `block in create'
+app/controllers/api/v1/newpokers_controller.rb:29:in `each'
+app/controllers/api/v1/newpokers_controller.rb:29:in `create'
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 09:06:21 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["1H 2C 3D 4H 5C", "2D 5S 6S 4D 3S", "10D 13C 12S 11D 1S"], "newpoker"=>{"cards"=>["1H 2C 3D 4H 5C", "2D 5S 6S 4D 3S", "10D 13C 12S 11D 1S"]}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 600)
+
+
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 09:06:43 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["1H 3H 9H 11H 6H", "2C 6C 7C 9C 13C"], "newpoker"=>{"cards"=>["1H 3H 9H 11H 6H", "2C 6C 7C 9C 13C"]}}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 417)
+
+
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 09:07:21 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["2H 2C 4D 4H 4C", "1D 5C 6S 6D 6S", "1D 11C 12S 1D 1S"], "newpoker"=>{"cards"=>["2H 2C 4D 4H 4C", "1D 5C 6S 6D 6S", "1D 11C 12S 1D 1S"]}}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms | Allocations: 2654)
+
+
+  
+NoMethodError (undefined method `has_key?' for nil:NilClass
+
+            if hashTable.has_key?(card)
+                        ^^^^^^^^^):
+  
+app/controllers/api/v1/newpokers_controller.rb:87:in `block in checkValidCardList'
+app/controllers/api/v1/newpokers_controller.rb:86:in `each'
+app/controllers/api/v1/newpokers_controller.rb:86:in `each_with_index'
+app/controllers/api/v1/newpokers_controller.rb:86:in `checkValidCardList'
+app/controllers/api/v1/newpokers_controller.rb:35:in `block in create'
+app/controllers/api/v1/newpokers_controller.rb:29:in `each'
+app/controllers/api/v1/newpokers_controller.rb:29:in `create'
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 09:08:34 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["2H 2C 4D 4H 4C", "1D 5C 6S 6D 6S", "1D 11C 12S 1H 1S"], "newpoker"=>{"cards"=>["2H 2C 4D 4H 4C", "1D 5C 6S 6D 6S", "1D 11C 12S 1H 1S"]}}
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms | Allocations: 2658)
+
+
+  
+NoMethodError (undefined method `has_key?' for nil:NilClass
+
+            if hashTable.has_key?(card)
+                        ^^^^^^^^^):
+  
+app/controllers/api/v1/newpokers_controller.rb:87:in `block in checkValidCardList'
+app/controllers/api/v1/newpokers_controller.rb:86:in `each'
+app/controllers/api/v1/newpokers_controller.rb:86:in `each_with_index'
+app/controllers/api/v1/newpokers_controller.rb:86:in `checkValidCardList'
+app/controllers/api/v1/newpokers_controller.rb:35:in `block in create'
+app/controllers/api/v1/newpokers_controller.rb:29:in `each'
+app/controllers/api/v1/newpokers_controller.rb:29:in `create'
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 09:09:09 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["2H 2C 4D 4H 4C", "1D 5C 6S 6D 6C", "1D 11C 12S 1H 1S"], "newpoker"=>{"cards"=>["2H 2C 4D 4H 4C", "1D 5C 6S 6D 6C", "1D 11C 12S 1H 1S"]}}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 492)
+
+
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 09:09:17 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["2H 2C 4D 4H 4C", "1D 5C 6S 6D 6S", "1D 11C 12S 1H 1S"], "newpoker"=>{"cards"=>["2H 2C 4D 4H 4C", "1D 5C 6S 6D 6S", "1D 11C 12S 1H 1S"]}}
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms | Allocations: 2650)
+
+
+  
+NoMethodError (undefined method `has_key?' for nil:NilClass
+
+            if hashTable.has_key?(card)
+                        ^^^^^^^^^):
+  
+app/controllers/api/v1/newpokers_controller.rb:87:in `block in checkValidCardList'
+app/controllers/api/v1/newpokers_controller.rb:86:in `each'
+app/controllers/api/v1/newpokers_controller.rb:86:in `each_with_index'
+app/controllers/api/v1/newpokers_controller.rb:86:in `checkValidCardList'
+app/controllers/api/v1/newpokers_controller.rb:35:in `block in create'
+app/controllers/api/v1/newpokers_controller.rb:29:in `each'
+app/controllers/api/v1/newpokers_controller.rb:29:in `create'
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 09:11:56 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["1D 5C 6S 6D 6S"], "newpoker"=>{"cards"=>["1D 5C 6S 6D 6S"]}}
+Completed 200 OK in 1ms (Views: 0.4ms | ActiveRecord: 6.3ms | Allocations: 318)
+
+
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 09:12:08 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["2H 2C 4D 4H 4C", "1D 5C 6S 6D 6S"], "newpoker"=>{"cards"=>["2H 2C 4D 4H 4C", "1D 5C 6S 6D 6S"]}}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 462)
+
+
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 09:12:16 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["2H 2C 4D 4H 4C", "1D 5C 6S 6D 6S", "1D 11C 12S 1H 1S"], "newpoker"=>{"cards"=>["2H 2C 4D 4H 4C", "1D 5C 6S 6D 6S", "1D 11C 12S 1H 1S"]}}
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms | Allocations: 2821)
+
+
+  
+NoMethodError (undefined method `has_key?' for nil:NilClass
+
+            if hashTable.has_key?(card)
+                        ^^^^^^^^^):
+  
+app/controllers/api/v1/newpokers_controller.rb:87:in `block in checkValidCardList'
+app/controllers/api/v1/newpokers_controller.rb:86:in `each'
+app/controllers/api/v1/newpokers_controller.rb:86:in `each_with_index'
+app/controllers/api/v1/newpokers_controller.rb:86:in `checkValidCardList'
+app/controllers/api/v1/newpokers_controller.rb:35:in `block in create'
+app/controllers/api/v1/newpokers_controller.rb:29:in `each'
+app/controllers/api/v1/newpokers_controller.rb:29:in `create'
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 09:12:50 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["2H 2C 4D 4H 4C", "1D 5C 6S 6D 6S", "1D 11C 12S 1H 1S"], "newpoker"=>{"cards"=>["2H 2C 4D 4H 4C", "1D 5C 6S 6D 6S", "1D 11C 12S 1H 1S"]}}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 12.4ms | Allocations: 2801)
+
+
+  
+NoMethodError (undefined method `has_key?' for nil:NilClass
+
+            if hashTable.has_key?(card)
+                        ^^^^^^^^^):
+  
+app/controllers/api/v1/newpokers_controller.rb:87:in `block in checkValidCardList'
+app/controllers/api/v1/newpokers_controller.rb:86:in `each'
+app/controllers/api/v1/newpokers_controller.rb:86:in `each_with_index'
+app/controllers/api/v1/newpokers_controller.rb:86:in `checkValidCardList'
+app/controllers/api/v1/newpokers_controller.rb:35:in `block in create'
+app/controllers/api/v1/newpokers_controller.rb:29:in `each'
+app/controllers/api/v1/newpokers_controller.rb:29:in `create'
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 09:14:14 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["2H 2C 4D 4H 4C", "1D 5C 6S 6D 6S", "1D 11C 12S 1H 1S"], "newpoker"=>{"cards"=>["2H 2C 4D 4H 4C", "1D 5C 6S 6D 6S", "1D 11C 12S 1H 1S"]}}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 1.5ms | Allocations: 2839)
+
+
+  
+NoMethodError (undefined method `has_key?' for nil:NilClass
+
+            if hashTable.has_key?(card)
+                        ^^^^^^^^^):
+  
+app/controllers/api/v1/newpokers_controller.rb:88:in `block in checkValidCardList'
+app/controllers/api/v1/newpokers_controller.rb:87:in `each'
+app/controllers/api/v1/newpokers_controller.rb:87:in `each_with_index'
+app/controllers/api/v1/newpokers_controller.rb:87:in `checkValidCardList'
+app/controllers/api/v1/newpokers_controller.rb:35:in `block in create'
+app/controllers/api/v1/newpokers_controller.rb:29:in `each'
+app/controllers/api/v1/newpokers_controller.rb:29:in `create'
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 09:21:59 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["2H 2C 4D 4H 4C", "1D 5C 6S 6D 6S"], "newpoker"=>{"cards"=>["2H 2C 4D 4H 4C", "1D 5C 6S 6D 6S"]}}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 550)
+
+
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 09:23:53 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["2H 2C 4D 4H 4C", "1D 5C 6S 6D 6S", "1C 6S 6D 5H 7H"], "newpoker"=>{"cards"=>["2H 2C 4D 4H 4C", "1D 5C 6S 6D 6S", "1C 6S 6D 5H 7H"]}}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms | Allocations: 2822)
+
+
+  
+NoMethodError (undefined method `has_key?' for nil:NilClass
+
+            if hashTable.has_key?(card)
+                        ^^^^^^^^^):
+  
+app/controllers/api/v1/newpokers_controller.rb:88:in `block in checkValidCardList'
+app/controllers/api/v1/newpokers_controller.rb:87:in `each'
+app/controllers/api/v1/newpokers_controller.rb:87:in `each_with_index'
+app/controllers/api/v1/newpokers_controller.rb:87:in `checkValidCardList'
+app/controllers/api/v1/newpokers_controller.rb:35:in `block in create'
+app/controllers/api/v1/newpokers_controller.rb:29:in `each'
+app/controllers/api/v1/newpokers_controller.rb:29:in `create'
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 09:24:45 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["2H 2C 4D 4H 4C", "1D 5C 6S 6D 6S", "1C 6S 6D 5H 7H"], "newpoker"=>{"cards"=>["2H 2C 4D 4H 4C", "1D 5C 6S 6D 6S", "1C 6S 6D 5H 7H"]}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 8.4ms | Allocations: 700)
+
+
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 09:26:15 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["2H 2C 4D 4H 4C", "1D 5C 6C 6D 6S", "1C 6S 6D 5H 7H"], "newpoker"=>{"cards"=>["2H 2C 4D 4H 4C", "1D 5C 6C 6D 6S", "1C 6S 6D 5H 7H"]}}
+Completed 200 OK in 2ms (Views: 0.5ms | ActiveRecord: 0.0ms | Allocations: 692)
+
+
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 09:26:20 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["2H 2C 4D 4H 4C", "1D 5C 6C 6D 6S", "1C 6H 6D 5H 7H"], "newpoker"=>{"cards"=>["2H 2C 4D 4H 4C", "1D 5C 6C 6D 6S", "1C 6H 6D 5H 7H"]}}
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 718)
+
+
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 09:26:38 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["2H 2C 4D 4H 4C", "1D 5C 6C 6D 6S", "1C 9H 6H 5H 7H"], "newpoker"=>{"cards"=>["2H 2C 4D 4H 4C", "1D 5C 6C 6D 6S", "1C 9H 6H 5H 7H"]}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 921)
+
+
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 09:27:50 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["2H 2C 4D 4H 14C", "1D 5C 5C 6D 6S", "1C 9F 6H 5H 7H", "1C 9F 6H 5H"], "newpoker"=>{"cards"=>["2H 2C 4D 4H 14C", "1D 5C 5C 6D 6S", "1C 9F 6H 5H 7H", "1C 9F 6H 5H"]}}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms | Allocations: 2602)
+
+
+  
+NoMethodError (undefined method `has_key?' for nil:NilClass
+
+            if hashTable.has_key?(card)
+                        ^^^^^^^^^):
+  
+app/controllers/api/v1/newpokers_controller.rb:88:in `block in checkValidCardList'
+app/controllers/api/v1/newpokers_controller.rb:87:in `each'
+app/controllers/api/v1/newpokers_controller.rb:87:in `each_with_index'
+app/controllers/api/v1/newpokers_controller.rb:87:in `checkValidCardList'
+app/controllers/api/v1/newpokers_controller.rb:35:in `block in create'
+app/controllers/api/v1/newpokers_controller.rb:29:in `each'
+app/controllers/api/v1/newpokers_controller.rb:29:in `create'
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 09:28:57 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["2H 2C 4D 4H 14C", "1D 5C 5C 6D 6S", "1C 9F 6H 5H 7H", "1C 9F 6H 5H"], "newpoker"=>{"cards"=>["2H 2C 4D 4H 14C", "1D 5C 5C 6D 6S", "1C 9F 6H 5H 7H", "1C 9F 6H 5H"]}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 28.8ms | Allocations: 427)
+
+
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 09:38:03 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["1C 1H 4D 5H 9C", "1D 1S 6S 7D 13S", "13D 13S 6C 7C 8S"], "newpoker"=>{"cards"=>["1C 1H 4D 5H 9C", "1D 1S 6S 7D 13S", "13D 13S 6C 7C 8S"]}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 8.5ms | Allocations: 657)
+
+
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 09:40:17 +0700
+  
+SyntaxError (/Users/n.tho/Project/pokerApp/app/controllers/api/v1/newpokers_controller.rb:377: syntax error, unexpected end-of-input, expecting `end'):
+  
+app/controllers/api/v1/newpokers_controller.rb:377: syntax error, unexpected end-of-input, expecting `end'
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 09:40:38 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["1C 1H 4D 5H 9C", "1D 1S 6S 7D 13S", "13D 13S 6C 7C 8S"], "newpoker"=>{"cards"=>["1C 1H 4D 5H 9C", "1D 1S 6S 7D 13S", "13D 13S 6C 7C 8S"]}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 5.0ms | Allocations: 658)
+
+
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 09:42:39 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["1C 1H 4D 5H 9C", "1D 1S 6S 7D 13S", "13D 13S 6C 7C 8S"], "newpoker"=>{"cards"=>["1C 1H 4D 5H 9C", "1D 1S 6S 7D 13S", "13D 13S 6C 7C 8S"]}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 3.7ms | Allocations: 647)
+
+
+Started GET "/" for ::1 at 2024-05-03 09:47:06 +0700
+Processing by WebController#index as HTML
+  Rendering web/index.html.erb
+  Rendered web/index.html.erb (Duration: 0.2ms | Allocations: 176)
+Completed 200 OK in 2ms (Views: 1.2ms | ActiveRecord: 0.0ms | Allocations: 1346)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-03 09:47:08 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"message"=>"1C 2C 3C 4C 5C"}
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 358)
+
+
+Started GET "/" for ::1 at 2024-05-03 09:49:33 +0700
+Processing by WebController#index as HTML
+  Rendering web/index.html.erb
+  Rendered web/index.html.erb (Duration: 7.9ms | Allocations: 2642)
+Completed 200 OK in 10ms (Views: 9.3ms | ActiveRecord: 0.0ms | Allocations: 3814)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-03 09:49:34 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "message"=>"1C 2C 3C 4C 5C"}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 353)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-03 09:49:59 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "message"=>"1C 2C 3C 4C 5C"}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 359)
+
+
+Started GET "/" for ::1 at 2024-05-03 09:50:01 +0700
+Processing by WebController#index as HTML
+  Rendering web/index.html.erb
+  Rendered web/index.html.erb (Duration: 1.7ms | Allocations: 616)
+Completed 200 OK in 6ms (Views: 4.8ms | ActiveRecord: 0.0ms | Allocations: 1784)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-03 09:50:02 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "message"=>"1C 2C 3C 4C 5C"}
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 270)
+
+
+Started GET "/" for ::1 at 2024-05-03 09:50:47 +0700
+Processing by WebController#index as HTML
+  Rendering web/index.html.erb
+  Rendered web/index.html.erb (Duration: 0.5ms | Allocations: 633)
+Completed 200 OK in 2ms (Views: 1.5ms | ActiveRecord: 0.0ms | Allocations: 1794)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-03 09:50:48 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "message"=>"1C 2C 3C 4C 5C"}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 353)
+
+
+Started GET "/" for ::1 at 2024-05-03 09:51:05 +0700
+Processing by WebController#index as HTML
+  Rendering web/index.html.erb
+  Rendered web/index.html.erb (Duration: 0.9ms | Allocations: 642)
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.0ms | Allocations: 1810)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-03 09:51:06 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "message"=>"1C 2C 3C 4C 5C"}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 358)
+
+
+Started GET "/" for ::1 at 2024-05-03 09:53:32 +0700
+Processing by WebController#index as HTML
+Completed 406 Not Acceptable in 1ms (ActiveRecord: 0.0ms | Allocations: 1021)
+
+
+  
+ActionController::UnknownFormat (WebController#index is missing a template for this request format and variant.
+
+request.formats: ["text/html"]
+request.variant: []):
+  
+actionpack (7.1.3.2) lib/action_controller/metal/implicit_render.rb:44:in `default_render'
+actionpack (7.1.3.2) lib/action_controller/metal/basic_implicit_render.rb:7:in `send_action'
+actionpack (7.1.3.2) lib/abstract_controller/base.rb:224:in `process_action'
+actionpack (7.1.3.2) lib/action_controller/metal/rendering.rb:165:in `process_action'
+actionpack (7.1.3.2) lib/abstract_controller/callbacks.rb:259:in `block in process_action'
+activesupport (7.1.3.2) lib/active_support/callbacks.rb:121:in `block in run_callbacks'
+turbo-rails (2.0.5) lib/turbo-rails.rb:24:in `with_request_id'
+turbo-rails (2.0.5) app/controllers/concerns/turbo/request_id_tracking.rb:10:in `turbo_tracking_request_id'
+activesupport (7.1.3.2) lib/active_support/callbacks.rb:130:in `block in run_callbacks'
+actiontext (7.1.3.2) lib/action_text/rendering.rb:23:in `with_renderer'
+actiontext (7.1.3.2) lib/action_text/engine.rb:69:in `block (4 levels) in <class:Engine>'
+activesupport (7.1.3.2) lib/active_support/callbacks.rb:130:in `instance_exec'
+activesupport (7.1.3.2) lib/active_support/callbacks.rb:130:in `block in run_callbacks'
+activesupport (7.1.3.2) lib/active_support/callbacks.rb:141:in `run_callbacks'
+actionpack (7.1.3.2) lib/abstract_controller/callbacks.rb:258:in `process_action'
+actionpack (7.1.3.2) lib/action_controller/metal/rescue.rb:25:in `process_action'
+actionpack (7.1.3.2) lib/action_controller/metal/instrumentation.rb:74:in `block in process_action'
+activesupport (7.1.3.2) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.1.3.2) lib/active_support/notifications/instrumenter.rb:58:in `instrument'
+activesupport (7.1.3.2) lib/active_support/notifications.rb:206:in `instrument'
+actionpack (7.1.3.2) lib/action_controller/metal/instrumentation.rb:73:in `process_action'
+actionpack (7.1.3.2) lib/action_controller/metal/params_wrapper.rb:261:in `process_action'
+activerecord (7.1.3.2) lib/active_record/railties/controller_runtime.rb:32:in `process_action'
+actionpack (7.1.3.2) lib/abstract_controller/base.rb:160:in `process'
+actionview (7.1.3.2) lib/action_view/rendering.rb:40:in `process'
+actionpack (7.1.3.2) lib/action_controller/metal.rb:227:in `dispatch'
+actionpack (7.1.3.2) lib/action_controller/metal.rb:309:in `dispatch'
+actionpack (7.1.3.2) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.1.3.2) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.1.3.2) lib/action_dispatch/journey/router.rb:51:in `block in serve'
+actionpack (7.1.3.2) lib/action_dispatch/journey/router.rb:131:in `block in find_routes'
+actionpack (7.1.3.2) lib/action_dispatch/journey/router.rb:124:in `each'
+actionpack (7.1.3.2) lib/action_dispatch/journey/router.rb:124:in `find_routes'
+actionpack (7.1.3.2) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.1.3.2) lib/action_dispatch/routing/route_set.rb:882:in `call'
+rack (3.0.10) lib/rack/tempfile_reaper.rb:20:in `call'
+rack (3.0.10) lib/rack/etag.rb:29:in `call'
+rack (3.0.10) lib/rack/conditional_get.rb:31:in `call'
+rack (3.0.10) lib/rack/head.rb:15:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/http/permissions_policy.rb:36:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/http/content_security_policy.rb:33:in `call'
+rack-session (2.0.0) lib/rack/session/abstract/id.rb:272:in `context'
+rack-session (2.0.0) lib/rack/session/abstract/id.rb:266:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/cookies.rb:689:in `call'
+activerecord (7.1.3.2) lib/active_record/migration.rb:655:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+activesupport (7.1.3.2) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/callbacks.rb:28:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/actionable_exceptions.rb:16:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (7.1.3.2) lib/rails/rack/logger.rb:37:in `call_app'
+railties (7.1.3.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (7.1.3.2) lib/active_support/tagged_logging.rb:135:in `block in tagged'
+activesupport (7.1.3.2) lib/active_support/tagged_logging.rb:39:in `tagged'
+activesupport (7.1.3.2) lib/active_support/tagged_logging.rb:135:in `tagged'
+activesupport (7.1.3.2) lib/active_support/broadcast_logger.rb:240:in `method_missing'
+railties (7.1.3.2) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/remote_ip.rb:92:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/request_id.rb:28:in `call'
+rack (3.0.10) lib/rack/method_override.rb:28:in `call'
+rack (3.0.10) lib/rack/runtime.rb:24:in `call'
+activesupport (7.1.3.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/server_timing.rb:59:in `block in call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/server_timing.rb:24:in `collect_events'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/server_timing.rb:58:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/static.rb:25:in `call'
+rack (3.0.10) lib/rack/sendfile.rb:114:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/host_authorization.rb:141:in `call'
+railties (7.1.3.2) lib/rails/engine.rb:536:in `call'
+puma (6.4.2) lib/puma/configuration.rb:272:in `call'
+puma (6.4.2) lib/puma/request.rb:100:in `block in handle_request'
+puma (6.4.2) lib/puma/thread_pool.rb:378:in `with_force_shutdown'
+puma (6.4.2) lib/puma/request.rb:99:in `handle_request'
+puma (6.4.2) lib/puma/server.rb:464:in `process_client'
+puma (6.4.2) lib/puma/server.rb:245:in `block in run'
+puma (6.4.2) lib/puma/thread_pool.rb:155:in `block in spawn_thread'
+Started GET "/" for ::1 at 2024-05-03 10:02:02 +0700
+Processing by WebController#index as HTML
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms | Allocations: 490)
+
+
+  
+ArgumentError (too few arguments):
+  
+app/controllers/web_controller.rb:5:in `format'
+app/controllers/web_controller.rb:5:in `index'
+Started GET "/" for ::1 at 2024-05-03 10:05:08 +0700
+Processing by WebController#index as HTML
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms | Allocations: 488)
+
+
+  
+ArgumentError (too few arguments):
+  
+app/controllers/web_controller.rb:5:in `format'
+app/controllers/web_controller.rb:5:in `index'
+Started GET "/" for ::1 at 2024-05-03 10:05:13 +0700
+Processing by WebController#index as HTML
+  Rendering web/index.html.erb
+  Rendered web/index.html.erb (Duration: 0.2ms | Allocations: 180)
+Completed 200 OK in 2ms (Views: 1.5ms | ActiveRecord: 0.0ms | Allocations: 1349)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-03 10:05:23 +0700
+  
+SyntaxError (/Users/n.tho/Project/pokerApp/app/controllers/api/v1/newpokers_controller.rb:14: syntax error, unexpected ':', expecting '}'
+        format.html {notice: "Created new"}
+                           ^
+/Users/n.tho/Project/pokerApp/app/controllers/api/v1/newpokers_controller.rb:14: syntax error, unexpected '}', expecting `end'
+...at.html {notice: "Created new"}
+...                              ^
+):
+  
+app/controllers/api/v1/newpokers_controller.rb:14: syntax error, unexpected ':', expecting '}'
+app/controllers/api/v1/newpokers_controller.rb:14: syntax error, unexpected '}', expecting `end'
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 10:07:27 +0700
+  
+SyntaxError (/Users/n.tho/Project/pokerApp/app/controllers/api/v1/newpokers_controller.rb:14: syntax error, unexpected ':', expecting '}'
+        format.html {notice: "Created new"}
+                           ^
+/Users/n.tho/Project/pokerApp/app/controllers/api/v1/newpokers_controller.rb:14: syntax error, unexpected '}', expecting `end'
+...at.html {notice: "Created new"}
+...                              ^
+):
+  
+app/controllers/api/v1/newpokers_controller.rb:14: syntax error, unexpected ':', expecting '}'
+app/controllers/api/v1/newpokers_controller.rb:14: syntax error, unexpected '}', expecting `end'
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-03 10:07:53 +0700
+  
+SyntaxError (/Users/n.tho/Project/pokerApp/app/controllers/api/v1/newpokers_controller.rb:14: syntax error, unexpected ':', expecting '}'
+        format.html {notice: "Created new"}
+                           ^
+/Users/n.tho/Project/pokerApp/app/controllers/api/v1/newpokers_controller.rb:14: syntax error, unexpected '}', expecting `end'
+...at.html {notice: "Created new"}
+...                              ^
+):
+  
+app/controllers/api/v1/newpokers_controller.rb:14: syntax error, unexpected ':', expecting '}'
+app/controllers/api/v1/newpokers_controller.rb:14: syntax error, unexpected '}', expecting `end'
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-03 10:08:01 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"message"=>"1C 2C 3C 4C 5C\r\n"}
+Completed 500 Internal Server Error in 8ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 4798)
+
+
+  
+NameError (undefined local variable or method `poker_params' for #<Api::V1::NewpokersController:0x000000000dd0e0>
+
+        newpoker = Newpoker.new(poker_params)
+                                ^^^^^^^^^^^^
+Did you mean?  newpoker_params):
+  
+app/controllers/api/v1/newpokers_controller.rb:75:in `create'
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-03 10:08:24 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"message"=>"1C 2C 3C 4C 5C\r\n"}
+Completed 500 Internal Server Error in 32ms (Views: 0.1ms | ActiveRecord: 18.8ms | Allocations: 11822)
+
+
+  
+ActiveModel::ForbiddenAttributesError (ActiveModel::ForbiddenAttributesError):
+  
+app/controllers/api/v1/newpokers_controller.rb:75:in `create'
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-03 10:09:11 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"message"=>"1C 2C 3C 4C 5C\r\n"}
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/newpokers_controller.rb:19:in `create'
+  [1m[36mNewpoker Create (6.5ms)[0m  [1m[32mINSERT INTO "newpokers" ("cards", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["cards", "[\"1C 2C 3C 4C 5C\\r\\n\"]"], ["created_at", "2024-05-03 03:09:11.535989"], ["updated_at", "2024-05-03 03:09:11.535989"]]
+  ↳ app/controllers/api/v1/newpokers_controller.rb:19:in `create'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/newpokers_controller.rb:19:in `create'
+Completed 200 OK in 18ms (Views: 0.1ms | ActiveRecord: 12.2ms | Allocations: 6335)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-03 10:09:16 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"message"=>"1C 2C 3C 4C 5C\r\n"}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/newpokers_controller.rb:19:in `create'
+  [1m[36mNewpoker Create (1.6ms)[0m  [1m[32mINSERT INTO "newpokers" ("cards", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["cards", "[\"1C 2C 3C 4C 5C\\r\\n\"]"], ["created_at", "2024-05-03 03:09:17.001705"], ["updated_at", "2024-05-03 03:09:17.001705"]]
+  ↳ app/controllers/api/v1/newpokers_controller.rb:19:in `create'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/newpokers_controller.rb:19:in `create'
+Completed 200 OK in 5ms (Views: 0.2ms | ActiveRecord: 2.8ms | Allocations: 2134)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-03 10:09:40 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"message"=>"1C 2C 3C 4C 5C\r\n"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/newpokers_controller.rb:19:in `create'
+  [1m[36mNewpoker Create (3.7ms)[0m  [1m[32mINSERT INTO "newpokers" ("cards", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["cards", "[\"1C 2C 3C 4C 5C\\r\\n\"]"], ["created_at", "2024-05-03 03:09:41.132868"], ["updated_at", "2024-05-03 03:09:41.132868"]]
+  ↳ app/controllers/api/v1/newpokers_controller.rb:19:in `create'
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/newpokers_controller.rb:19:in `create'
+Redirected to http://localhost:3000/
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 11.7ms | Allocations: 5849)
+
+
+  
+AbstractController::DoubleRenderError (Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...); return".):
+  
+app/controllers/api/v1/newpokers_controller.rb:78:in `create'
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-03 10:10:12 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"message"=>"1C 2C 3C 4C 5C\r\n"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/newpokers_controller.rb:19:in `create'
+  [1m[36mNewpoker Create (0.7ms)[0m  [1m[32mINSERT INTO "newpokers" ("cards", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["cards", "[\"1C 2C 3C 4C 5C\\r\\n\"]"], ["created_at", "2024-05-03 03:10:12.350502"], ["updated_at", "2024-05-03 03:10:12.350502"]]
+  ↳ app/controllers/api/v1/newpokers_controller.rb:19:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/newpokers_controller.rb:19:in `create'
+Redirected to http://localhost:3000/
+Completed 302 Found in 8ms (ActiveRecord: 5.3ms | Allocations: 5367)
+
+
+Started GET "/" for ::1 at 2024-05-03 10:10:12 +0700
+Processing by WebController#index as HTML
+  Rendering web/index.html.erb
+  Rendered web/index.html.erb (Duration: 0.2ms | Allocations: 177)
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.0ms | Allocations: 1339)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-03 10:10:15 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"message"=>""}
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/newpokers_controller.rb:19:in `create'
+  [1m[36mNewpoker Create (2.0ms)[0m  [1m[32mINSERT INTO "newpokers" ("cards", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["cards", "[]"], ["created_at", "2024-05-03 03:10:15.693352"], ["updated_at", "2024-05-03 03:10:15.693352"]]
+  ↳ app/controllers/api/v1/newpokers_controller.rb:19:in `create'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/newpokers_controller.rb:19:in `create'
+Redirected to http://localhost:3000/
+Completed 302 Found in 7ms (ActiveRecord: 3.3ms | Allocations: 2209)
+
+
+Started GET "/" for ::1 at 2024-05-03 10:10:15 +0700
+Processing by WebController#index as HTML
+  Rendering web/index.html.erb
+  Rendered web/index.html.erb (Duration: 0.0ms | Allocations: 7)
+Completed 200 OK in 1ms (Views: 0.5ms | ActiveRecord: 0.0ms | Allocations: 309)
+
+
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 10:10:20 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["1C 1H 4D 5H 9C", "1D 1S 6S 7D 13S", "13D 13S 6C 7C 8S"], "newpoker"=>{"cards"=>["1C 1H 4D 5H 9C", "1D 1S 6S 7D 13S", "13D 13S 6C 7C 8S"]}}
+No template found for Api::V1::NewpokersController#create, rendering head :no_content
+Completed 204 No Content in 2ms (ActiveRecord: 0.0ms | Allocations: 846)
+
+
+Started GET "/" for ::1 at 2024-05-03 10:11:36 +0700
+Processing by WebController#index as HTML
+Completed 406 Not Acceptable in 1ms (ActiveRecord: 0.0ms | Allocations: 1000)
+
+
+  
+ActionController::UnknownFormat (WebController#index is missing a template for this request format and variant.
+
+request.formats: ["text/html"]
+request.variant: []):
+  
+actionpack (7.1.3.2) lib/action_controller/metal/implicit_render.rb:44:in `default_render'
+actionpack (7.1.3.2) lib/action_controller/metal/basic_implicit_render.rb:7:in `send_action'
+actionpack (7.1.3.2) lib/abstract_controller/base.rb:224:in `process_action'
+actionpack (7.1.3.2) lib/action_controller/metal/rendering.rb:165:in `process_action'
+actionpack (7.1.3.2) lib/abstract_controller/callbacks.rb:259:in `block in process_action'
+activesupport (7.1.3.2) lib/active_support/callbacks.rb:121:in `block in run_callbacks'
+turbo-rails (2.0.5) lib/turbo-rails.rb:24:in `with_request_id'
+turbo-rails (2.0.5) app/controllers/concerns/turbo/request_id_tracking.rb:10:in `turbo_tracking_request_id'
+activesupport (7.1.3.2) lib/active_support/callbacks.rb:130:in `block in run_callbacks'
+actiontext (7.1.3.2) lib/action_text/rendering.rb:23:in `with_renderer'
+actiontext (7.1.3.2) lib/action_text/engine.rb:69:in `block (4 levels) in <class:Engine>'
+activesupport (7.1.3.2) lib/active_support/callbacks.rb:130:in `instance_exec'
+activesupport (7.1.3.2) lib/active_support/callbacks.rb:130:in `block in run_callbacks'
+activesupport (7.1.3.2) lib/active_support/callbacks.rb:141:in `run_callbacks'
+actionpack (7.1.3.2) lib/abstract_controller/callbacks.rb:258:in `process_action'
+actionpack (7.1.3.2) lib/action_controller/metal/rescue.rb:25:in `process_action'
+actionpack (7.1.3.2) lib/action_controller/metal/instrumentation.rb:74:in `block in process_action'
+activesupport (7.1.3.2) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.1.3.2) lib/active_support/notifications/instrumenter.rb:58:in `instrument'
+activesupport (7.1.3.2) lib/active_support/notifications.rb:206:in `instrument'
+actionpack (7.1.3.2) lib/action_controller/metal/instrumentation.rb:73:in `process_action'
+actionpack (7.1.3.2) lib/action_controller/metal/params_wrapper.rb:261:in `process_action'
+activerecord (7.1.3.2) lib/active_record/railties/controller_runtime.rb:32:in `process_action'
+actionpack (7.1.3.2) lib/abstract_controller/base.rb:160:in `process'
+actionview (7.1.3.2) lib/action_view/rendering.rb:40:in `process'
+actionpack (7.1.3.2) lib/action_controller/metal.rb:227:in `dispatch'
+actionpack (7.1.3.2) lib/action_controller/metal.rb:309:in `dispatch'
+actionpack (7.1.3.2) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.1.3.2) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.1.3.2) lib/action_dispatch/journey/router.rb:51:in `block in serve'
+actionpack (7.1.3.2) lib/action_dispatch/journey/router.rb:131:in `block in find_routes'
+actionpack (7.1.3.2) lib/action_dispatch/journey/router.rb:124:in `each'
+actionpack (7.1.3.2) lib/action_dispatch/journey/router.rb:124:in `find_routes'
+actionpack (7.1.3.2) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.1.3.2) lib/action_dispatch/routing/route_set.rb:882:in `call'
+rack (3.0.10) lib/rack/tempfile_reaper.rb:20:in `call'
+rack (3.0.10) lib/rack/etag.rb:29:in `call'
+rack (3.0.10) lib/rack/conditional_get.rb:31:in `call'
+rack (3.0.10) lib/rack/head.rb:15:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/http/permissions_policy.rb:36:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/http/content_security_policy.rb:33:in `call'
+rack-session (2.0.0) lib/rack/session/abstract/id.rb:272:in `context'
+rack-session (2.0.0) lib/rack/session/abstract/id.rb:266:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/cookies.rb:689:in `call'
+activerecord (7.1.3.2) lib/active_record/migration.rb:655:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+activesupport (7.1.3.2) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/callbacks.rb:28:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/actionable_exceptions.rb:16:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (7.1.3.2) lib/rails/rack/logger.rb:37:in `call_app'
+railties (7.1.3.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (7.1.3.2) lib/active_support/tagged_logging.rb:135:in `block in tagged'
+activesupport (7.1.3.2) lib/active_support/tagged_logging.rb:39:in `tagged'
+activesupport (7.1.3.2) lib/active_support/tagged_logging.rb:135:in `tagged'
+activesupport (7.1.3.2) lib/active_support/broadcast_logger.rb:240:in `method_missing'
+railties (7.1.3.2) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/remote_ip.rb:92:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/request_id.rb:28:in `call'
+rack (3.0.10) lib/rack/method_override.rb:28:in `call'
+rack (3.0.10) lib/rack/runtime.rb:24:in `call'
+activesupport (7.1.3.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/server_timing.rb:59:in `block in call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/server_timing.rb:24:in `collect_events'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/server_timing.rb:58:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/static.rb:25:in `call'
+rack (3.0.10) lib/rack/sendfile.rb:114:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/host_authorization.rb:141:in `call'
+railties (7.1.3.2) lib/rails/engine.rb:536:in `call'
+puma (6.4.2) lib/puma/configuration.rb:272:in `call'
+puma (6.4.2) lib/puma/request.rb:100:in `block in handle_request'
+puma (6.4.2) lib/puma/thread_pool.rb:378:in `with_force_shutdown'
+puma (6.4.2) lib/puma/request.rb:99:in `handle_request'
+puma (6.4.2) lib/puma/server.rb:464:in `process_client'
+puma (6.4.2) lib/puma/server.rb:245:in `block in run'
+puma (6.4.2) lib/puma/thread_pool.rb:155:in `block in spawn_thread'
+Started GET "/" for ::1 at 2024-05-03 10:11:49 +0700
+Processing by WebController#index as HTML
+  Rendering web/index.html.erb
+  Rendered web/index.html.erb (Duration: 0.5ms | Allocations: 608)
+Completed 200 OK in 2ms (Views: 1.5ms | ActiveRecord: 0.0ms | Allocations: 1769)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-03 10:11:55 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "message"=>"1A 2A 3A 4A 5A"}
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/newpokers_controller.rb:19:in `create'
+  [1m[36mNewpoker Create (1.8ms)[0m  [1m[32mINSERT INTO "newpokers" ("cards", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["cards", "[\"1A 2A 3A 4A 5A\"]"], ["created_at", "2024-05-03 03:11:55.986608"], ["updated_at", "2024-05-03 03:11:55.986608"]]
+  ↳ app/controllers/api/v1/newpokers_controller.rb:19:in `create'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/newpokers_controller.rb:19:in `create'
+Redirected to http://localhost:3000/
+Completed 302 Found in 16ms (ActiveRecord: 8.0ms | Allocations: 5241)
+
+
+Started GET "/" for ::1 at 2024-05-03 10:11:55 +0700
+Processing by WebController#index as HTML
+  Rendering web/index.html.erb
+  Rendered web/index.html.erb (Duration: 0.5ms | Allocations: 372)
+Completed 200 OK in 1ms (Views: 1.0ms | ActiveRecord: 0.0ms | Allocations: 711)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-03 10:14:12 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "message"=>"1c 2C 3C 4A 5D\r\n"}
+No template found for Api::V1::NewpokersController#create, rendering head :no_content
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 473)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-03 10:14:34 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "message"=>"1c 2C 3C 4A 5D\r\n"}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 224)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-03 10:15:18 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "message"=>"1c 2C 3C 4A 5D\r\n"}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 124)
+
+
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 10:25:24 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["1C 1H 4D 5H 9C", "1D 1S 6S 7D 13S", "13D 13S 6C 7C 8S"], "newpoker"=>{"cards"=>["1C 1H 4D 5H 9C", "1D 1S 6S 7D 13S", "13D 13S 6C 7C 8S"]}}
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 14.6ms | Allocations: 608)
+
+
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 10:26:32 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["1C 1H 4D 5H 9C", "1D 1S 6S 7D 13S", "13D 13S 6C 7C 8S"], "newpoker"=>{"cards"=>["1C 1H 4D 5H 9C", "1D 1S 6S 7D 13S", "13D 13S 6C 7C 8S"]}}
+Completed 200 OK in 0ms (Views: 0.3ms | ActiveRecord: 3.3ms | Allocations: 646)
+
+
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 11:00:09 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["1C 1H 4D 5H 9C", "1D 1S 6S 7D 13S", "13D 13S 6C 7C 8S"], "newpoker"=>{"cards"=>["1C 1H 4D 5H 9C", "1D 1S 6S 7D 13S", "13D 13S 6C 7C 8S"]}}
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 528)
+
+
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 11:00:15 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["1C 1H 4D 5H 9C", "1D 1S 6S 7D 13S", "13D 13S 6C 8C 8S"], "newpoker"=>{"cards"=>["1C 1H 4D 5H 9C", "1D 1S 6S 7D 13S", "13D 13S 6C 8C 8S"]}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 528)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-03 11:10:41 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["1C 1H 4D 5H 9C", "1D 1S 6S 7D 13S", "13D 13S 6C 8C 8S"], "newpoker"=>{"cards"=>["1C 1H 4D 5H 9C", "1D 1S 6S 7D 13S", "13D 13S 6C 8C 8S"]}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 528)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-03 11:10:49 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["1C 4H 4D 5H 9C", "1D 1S 6S 7D 13S", "13D 13S 6C 8C 8S"], "newpoker"=>{"cards"=>["1C 4H 4D 5H 9C", "1D 1S 6S 7D 13S", "13D 13S 6C 8C 8S"]}}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 529)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-03 11:23:02 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"123"=>nil}
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.0ms | Allocations: 1736)
+
+
+  
+NoMethodError (undefined method `each' for nil:NilClass):
+  
+app/controllers/api/v1/newpokers_controller.rb:27:in `create'
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-03 11:23:30 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"1C 2C 3C 4C 5C"=>nil}
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms | Allocations: 1697)
+
+
+  
+NoMethodError (undefined method `each' for nil:NilClass):
+  
+app/controllers/api/v1/newpokers_controller.rb:27:in `create'
+Started OPTIONS "/api/v1/newpokers" for ::1 at 2024-05-03 11:24:47 +0700
+  
+ActionController::RoutingError (No route matches [OPTIONS] "/api/v1/newpokers"):
+  
+Started OPTIONS "/api/v1/newpokers" for ::1 at 2024-05-03 11:27:12 +0700
+  
+ActionController::RoutingError (No route matches [OPTIONS] "/api/v1/newpokers"):
+  
+Started GET "/api/v1/newpokers" for ::1 at 2024-05-03 11:27:35 +0700
+Processing by Api::V1::NewpokersController#index as HTML
+  [1m[36mNewpoker Load (22.8ms)[0m  [1m[34mSELECT "newpokers".* FROM "newpokers"[0m
+  ↳ app/controllers/api/v1/newpokers_controller.rb:6:in `index'
+Completed 200 OK in 33ms (Views: 1.0ms | ActiveRecord: 38.9ms | Allocations: 5978)
+
+
+Started OPTIONS "/api/v1/newpokers" for ::1 at 2024-05-03 11:28:05 +0700
+  
+ActionController::RoutingError (No route matches [OPTIONS] "/api/v1/newpokers"):
+  
+Started OPTIONS "/api/v1/newpokers" for ::1 at 2024-05-03 11:29:21 +0700
+  
+ActionController::RoutingError (No route matches [OPTIONS] "/api/v1/newpokers"):
+  
+Started OPTIONS "/api/v1/newpokers" for ::1 at 2024-05-03 11:32:29 +0700
+  
+ActionController::RoutingError (No route matches [OPTIONS] "/api/v1/newpokers"):
+  
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-03 11:39:47 +0700
+  [1m[36mActiveRecord::SchemaMigration Load (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "message"=>"1c 2C 3C 4A 5D\r\n"}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 397)
+
+
+Started GET "/" for ::1 at 2024-05-03 11:39:49 +0700
+  
+ActionController::RoutingError (uninitialized constant WebController
+
+      Object.const_get(camel_cased_word)
+            ^^^^^^^^^^
+Did you mean?  WebConsole
+
+            raise MissingController.new(error.message, error.name)
+            ^^^^^):
+  
+Started GET "/api/v1/newpokers" for ::1 at 2024-05-03 11:52:45 +0700
+Processing by Api::V1::NewpokersController#index as HTML
+  [1m[36mNewpoker Load (0.6ms)[0m  [1m[34mSELECT "newpokers".* FROM "newpokers"[0m
+  ↳ app/controllers/api/v1/newpokers_controller.rb:6:in `index'
+Completed 200 OK in 60ms (Views: 0.7ms | ActiveRecord: 16.7ms | Allocations: 19352)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-03 11:53:05 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["1C 4H 4D 5H 9C", "1D 1S 6S 7D 13S", "13D 13S 6C 8C 8S"], "newpoker"=>{"cards"=>["1C 4H 4D 5H 9C", "1D 1S 6S 7D 13S", "13D 13S 6C 8C 8S"]}}
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 573)
+
+
+Started GET "/api/v1/newpokers" for ::1 at 2024-05-03 12:05:39 +0700
+Processing by Api::V1::NewpokersController#index as HTML
+  [1m[36mNewpoker Load (19.1ms)[0m  [1m[34mSELECT "newpokers".* FROM "newpokers"[0m
+  ↳ app/controllers/api/v1/newpokers_controller.rb:6:in `index'
+Completed 200 OK in 22ms (Views: 0.7ms | ActiveRecord: 29.1ms | Allocations: 3844)
+
+
+Started GET "/api/v1/newpokers" for ::1 at 2024-05-03 12:06:08 +0700
+Processing by Api::V1::NewpokersController#index as HTML
+  [1m[36mNewpoker Load (0.6ms)[0m  [1m[34mSELECT "newpokers".* FROM "newpokers"[0m
+  ↳ app/controllers/api/v1/newpokers_controller.rb:6:in `index'
+Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.6ms | Allocations: 948)
+
+
+Started GET "/api/v1/newpokers" for ::1 at 2024-05-03 12:10:28 +0700
+Processing by Api::V1::NewpokersController#index as HTML
+  [1m[36mNewpoker Load (0.6ms)[0m  [1m[34mSELECT "newpokers".* FROM "newpokers"[0m
+  ↳ app/controllers/api/v1/newpokers_controller.rb:6:in `index'
+Completed 200 OK in 4ms (Views: 1.7ms | ActiveRecord: 0.6ms | Allocations: 938)
+
+
+Started GET "/api/v1/newpokers" for ::1 at 2024-05-03 12:10:34 +0700
+Processing by Api::V1::NewpokersController#index as HTML
+  [1m[36mNewpoker Load (13.7ms)[0m  [1m[34mSELECT "newpokers".* FROM "newpokers"[0m
+  ↳ app/controllers/api/v1/newpokers_controller.rb:6:in `index'
+Completed 200 OK in 28ms (Views: 0.5ms | ActiveRecord: 13.6ms | Allocations: 945)
+
+
+Started GET "/api/v1/newpokers" for ::1 at 2024-05-03 12:10:50 +0700
+Processing by Api::V1::NewpokersController#index as HTML
+  [1m[36mNewpoker Load (6.9ms)[0m  [1m[34mSELECT "newpokers".* FROM "newpokers"[0m
+  ↳ app/controllers/api/v1/newpokers_controller.rb:6:in `index'
+Completed 200 OK in 9ms (Views: 0.3ms | ActiveRecord: 6.9ms | Allocations: 934)
+
+
+Started GET "/" for ::1 at 2024-05-03 12:11:53 +0700
+  
+ActionController::RoutingError (uninitialized constant WebController
+
+      Object.const_get(camel_cased_word)
+            ^^^^^^^^^^
+Did you mean?  WebConsole
+
+            raise MissingController.new(error.message, error.name)
+            ^^^^^):
+  
+Started GET "/" for ::1 at 2024-05-03 12:12:03 +0700
+  
+ActionController::RoutingError (uninitialized constant WebController
+
+      Object.const_get(camel_cased_word)
+            ^^^^^^^^^^
+Did you mean?  WebConsole
+
+            raise MissingController.new(error.message, error.name)
+            ^^^^^):
+  
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-03 12:16:29 +0700
+  [1m[36mActiveRecord::SchemaMigration Load (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"1234"=>nil}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 1858)
+
+
+  
+NoMethodError (undefined method `each' for nil:NilClass):
+  
+app/controllers/api/v1/newpokers_controller.rb:27:in `create'
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-03 12:17:13 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"1234"=>nil}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms | Allocations: 1740)
+
+
+  
+NoMethodError (undefined method `each' for nil:NilClass):
+  
+app/controllers/api/v1/newpokers_controller.rb:27:in `create'
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-03 12:17:29 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"1234"=>nil}
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms | Allocations: 1707)
+
+
+  
+NoMethodError (undefined method `each' for nil:NilClass):
+  
+app/controllers/api/v1/newpokers_controller.rb:27:in `create'
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-03 12:18:07 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"1234"=>nil}
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms | Allocations: 1703)
+
+
+  
+NoMethodError (undefined method `each' for nil:NilClass):
+  
+app/controllers/api/v1/newpokers_controller.rb:27:in `create'
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-03 12:18:51 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["1C 4H 4D 5H 9C", "1D 1S 6S 7D 13S", "13D 13S 6C 8C 8S"], "newpoker"=>{"cards"=>["1C 4H 4D 5H 9C", "1D 1S 6S 7D 13S", "13D 13S 6C 8C 8S"]}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 9.8ms | Allocations: 744)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-03 12:18:55 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"_json"=>123, "newpoker"=>{}}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms | Allocations: 1734)
+
+
+  
+NoMethodError (undefined method `each' for nil:NilClass):
+  
+app/controllers/api/v1/newpokers_controller.rb:27:in `create'
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-03 12:19:14 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["1C 4H 4D 5H 9C", "1D 1S 6S 7D 13S", "13D 13S 6C 8C 8S"], "newpoker"=>{"cards"=>["1C 4H 4D 5H 9C", "1D 1S 6S 7D 13S", "13D 13S 6C 8C 8S"]}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 543)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-03 12:19:22 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"1234"=>nil}
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.0ms | Allocations: 1703)
+
+
+  
+NoMethodError (undefined method `each' for nil:NilClass):
+  
+app/controllers/api/v1/newpokers_controller.rb:27:in `create'
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-03 12:21:21 +0700
+  [1m[36mActiveRecord::SchemaMigration Load (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"1234"=>nil}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 1860)
+
+
+  
+NoMethodError (undefined method `each' for nil:NilClass):
+  
+app/controllers/api/v1/newpokers_controller.rb:27:in `create'
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-03 12:57:06 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"1234"=>nil}
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms | Allocations: 1741)
+
+
+  
+NoMethodError (undefined method `each' for nil:NilClass):
+  
+app/controllers/api/v1/newpokers_controller.rb:27:in `create'
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-03 13:01:37 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"1234"=>nil}
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms | Allocations: 1707)
+
+
+  
+NoMethodError (undefined method `each' for nil:NilClass):
+  
+app/controllers/api/v1/newpokers_controller.rb:27:in `create'
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-03 13:01:46 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"1234"=>nil}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms | Allocations: 1705)
+
+
+  
+NoMethodError (undefined method `each' for nil:NilClass):
+  
+app/controllers/api/v1/newpokers_controller.rb:27:in `create'
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-03 13:02:06 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"1234"=>nil}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms | Allocations: 1707)
+
+
+  
+NoMethodError (undefined method `each' for nil:NilClass):
+  
+app/controllers/api/v1/newpokers_controller.rb:27:in `create'
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-03 13:02:25 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>"1C 3C 4C 5C 6C", "newpoker"=>{"cards"=>"1C 3C 4C 5C 6C"}}
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 13.3ms | Allocations: 2514)
+
+
+  
+NoMethodError (undefined method `each' for "1C 3C 4C 5C 6C":String):
+  
+app/controllers/api/v1/newpokers_controller.rb:27:in `create'
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-03 13:02:49 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"message"=>"1C 3C 4C 5C 6C", "newpoker"=>{}}
+Completed 200 OK in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 426)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-03 13:03:39 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"message"=>"1C 3C 4C 5C 6C", "newpoker"=>{}}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 250)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-03 13:10:39 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"message"=>"1C 3C 4C 5C 6C", "newpoker"=>{}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 250)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-03 13:11:13 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"message"=>"1C 3C 4C 5C 6C", "newpoker"=>{}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 250)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-03 13:12:12 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"message"=>"1C 3C 4C 5C 6C", "newpoker"=>{}}
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 250)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-03 13:12:53 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"message"=>"1C 3C 4C 5C 6C", "newpoker"=>{}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 250)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-03 13:13:01 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"message"=>"1C 3C 4C 5C 6C", "newpoker"=>{}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 250)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-03 13:13:26 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"message"=>"1C 3C 4C 5C 6C", "newpoker"=>{}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 250)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-03 13:13:38 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"message"=>"1C 3C 4C 5C 6C", "newpoker"=>{}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 250)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-03 13:13:49 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"message"=>"1C 3C 4C 5C 6C", "newpoker"=>{}}
+Completed 200 OK in 1ms (Views: 0.5ms | ActiveRecord: 0.0ms | Allocations: 250)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-03 13:13:53 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"message"=>"1C 3C 4C 5C 6C", "newpoker"=>{}}
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 250)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-03 13:14:16 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"message"=>"1C 3C 4C 5C 6C", "newpoker"=>{}}
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 250)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-03 13:14:45 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"message"=>"1C 3C 4C 5C 6C", "newpoker"=>{}}
+Completed 200 OK in 1ms (Views: 1.2ms | ActiveRecord: 0.0ms | Allocations: 250)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-03 13:16:08 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"message"=>"1C 3C 4C 5C 6C", "newpoker"=>{}}
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 250)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-03 13:19:53 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"message"=>"1C 2C 3C 4C 5C", "newpoker"=>{}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 250)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-03 13:20:02 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"message"=>"1C 2C 3C 4C 5C", "newpoker"=>{}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 249)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-03 13:20:05 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"message"=>"1C 2C 3C 4C 5C", "newpoker"=>{}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 249)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-03 13:20:44 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"message"=>"1C 2C 3C 4C 5C", "newpoker"=>{}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 249)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-03 13:20:47 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"message"=>"1C 2C 3C 4C 5C", "newpoker"=>{}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 249)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-03 13:21:15 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"message"=>"1C 2C 3C 4C 5C", "newpoker"=>{}}
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 249)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-03 13:21:29 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"message"=>"1C 2C 3C 4C 5C, 2D 4C 7S 8S 7D", "newpoker"=>{}}
+Completed 200 OK in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 325)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-03 13:21:34 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"message"=>"1C 2C 3C 4C 10C, 2D 4C 7S 8S 7D", "newpoker"=>{}}
+Completed 200 OK in 1ms (Views: 1.1ms | ActiveRecord: 0.0ms | Allocations: 326)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-03 13:21:45 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"message"=>"4C 2C 3C 4C 10A, 1D 4C 7S 8S 7D", "newpoker"=>{}}
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 356)
+
+
+Started GET "/api/v1/newpokers" for ::1 at 2024-05-03 13:23:02 +0700
+  
+SyntaxError (/Users/n.tho/Project/pokerApp/app/controllers/api/v1/newpokers_controller.rb:7: syntax error, unexpected integer literal, expecting literal content or terminator or tSTRING_DBEG or tSTRING_DVAR
+...data: newpokers }, status: :200
+...                            ^~~
+):
+  
+app/controllers/api/v1/newpokers_controller.rb:7: syntax error, unexpected integer literal, expecting literal content or terminator or tSTRING_DBEG or tSTRING_DVAR
+Started GET "/api/v1/newpokers" for ::1 at 2024-05-03 13:23:15 +0700
+Processing by Api::V1::NewpokersController#index as */*
+  Parameters: {"cards"=>["1C 4H 4D 5H 9C", "1D 1S 6S 7D 13S", "13D 13S 6C 8C 8S"], "newpoker"=>{"cards"=>["1C 4H 4D 5H 9C", "1D 1S 6S 7D 13S", "13D 13S 6C 8C 8S"]}}
+  [1m[36mNewpoker Load (1.0ms)[0m  [1m[34mSELECT "newpokers".* FROM "newpokers"[0m
+  ↳ app/controllers/api/v1/newpokers_controller.rb:6:in `index'
+Completed 200 OK in 16ms (Views: 0.7ms | ActiveRecord: 17.2ms | Allocations: 9658)
+
+
+Started GET "/api/v1/newpokers" for ::1 at 2024-05-03 13:23:33 +0700
+Processing by Api::V1::NewpokersController#index as */*
+  Parameters: {"cards"=>["1C 4H 4D 5H 9C", "1D 1S 6S 7D 13S", "13D 13S 6C 8C 8S"], "newpoker"=>{"cards"=>["1C 4H 4D 5H 9C", "1D 1S 6S 7D 13S", "13D 13S 6C 8C 8S"]}}
+  [1m[36mNewpoker Load (0.1ms)[0m  [1m[34mSELECT "newpokers".* FROM "newpokers"[0m
+  ↳ app/controllers/api/v1/newpokers_controller.rb:6:in `index'
+Completed 200 OK in 4ms (Views: 0.3ms | ActiveRecord: 5.8ms | Allocations: 3024)
+
+
+Started GET "/api/v1/newpokers" for ::1 at 2024-05-03 13:23:57 +0700
+Processing by Api::V1::NewpokersController#index as */*
+  Parameters: {"cards"=>["1C 4H 4D 5H 9C", "1D 1S 6S 7D 13S", "13D 13S 6C 8C 8S"], "newpoker"=>{"cards"=>["1C 4H 4D 5H 9C", "1D 1S 6S 7D 13S", "13D 13S 6C 8C 8S"]}}
+  [1m[36mNewpoker Load (0.2ms)[0m  [1m[34mSELECT "newpokers".* FROM "newpokers"[0m
+  ↳ app/controllers/api/v1/newpokers_controller.rb:5:in `index'
+Completed 200 OK in 4ms (Views: 0.4ms | ActiveRecord: 4.0ms | Allocations: 3020)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-03 13:24:12 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["1C 4H 4D 5H 9C", "1D 1S 6S 7D 13S", "13D 13S 6C 8C 8S"], "newpoker"=>{"cards"=>["1C 4H 4D 5H 9C", "1D 1S 6S 7D 13S", "13D 13S 6C 8C 8S"]}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 6.5ms | Allocations: 667)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-03 13:24:28 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["1C 4H 4D 5H 9C", "1D 1S 6S 7D 13S", "13D 13S 6C 8C 8S"], "newpoker"=>{"cards"=>["1C 4H 4D 5H 9C", "1D 1S 6S 7D 13S", "13D 13S 6C 8C 8S"]}}
+Completed 300 Multiple Choices in 0ms (Views: 0.1ms | ActiveRecord: 2.4ms | Allocations: 665)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-03 13:25:27 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["1C 4H 4D 5H 9C", "1D 1S 6S 7D 13S", "13D 13S 6C 8C 8S"], "newpoker"=>{"cards"=>["1C 4H 4D 5H 9C", "1D 1S 6S 7D 13S", "13D 13S 6C 8C 8S"]}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 2.1ms | Allocations: 653)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-03 13:25:36 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["1C 4D 4D 5H 9C", "1D 1D 6S 7D 13S", "13D 13S 6C 8C 8S"], "newpoker"=>{"cards"=>["1C 4D 4D 5H 9C", "1D 1D 6S 7D 13S", "13D 13S 6C 8C 8S"]}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 447)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-03 13:25:44 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["1C 4D 4D 5H 9C", "1D 1D 6S 7D 13S", "13D 13D 6C 8C 8S"], "newpoker"=>{"cards"=>["1C 4D 4D 5H 9C", "1D 1D 6S 7D 13S", "13D 13D 6C 8C 8S"]}}
+Completed 500 Internal Server Error in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 807)
+
+
+  
+AbstractController::DoubleRenderError (Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...); return".):
+  
+app/controllers/api/v1/newpokers_controller.rb:80:in `create'
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-03 13:26:11 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["1C 4D 4D 5H 9C", "1D 1D 6S 7D 13S", "13D 13D 6C 8C 8S"], "newpoker"=>{"cards"=>["1C 4D 4D 5H 9C", "1D 1D 6S 7D 13S", "13D 13D 6C 8C 8S"]}}
+Completed 400 Bad Request in 0ms (Views: 0.1ms | ActiveRecord: 1.6ms | Allocations: 430)
+
+
+Started POST "/api/v1/newpoker" for ::1 at 2024-05-03 13:26:21 +0700
+  
+ActionController::RoutingError (No route matches [POST] "/api/v1/newpoker"):
+  
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-03 13:26:24 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["1C 4D 4D 5H 9C", "1D 1D 6S 7D 13S", "13D 13D 6C 8C 8S"], "newpoker"=>{"cards"=>["1C 4D 4D 5H 9C", "1D 1D 6S 7D 13S", "13D 13D 6C 8C 8S"]}}
+Completed 400 Bad Request in 1ms (Views: 0.5ms | ActiveRecord: 0.0ms | Allocations: 363)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-03 13:27:02 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"message"=>"4C 2C 3C 4C 10A, 1D 4C 7S 8S 7D", "newpoker"=>{}}
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 361)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-03 13:27:10 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"message"=>"4C 4C 3C 4C 10A, 1D 4C 7S 8S 7D", "newpoker"=>{}}
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 345)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-03 13:27:11 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"message"=>"4C 4C 3C 4C 10A, 1D 4C 7S 8S 7D", "newpoker"=>{}}
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 345)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-03 13:27:22 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"message"=>"4H 4D 3C 4C 10A, 1D 4C 7S 8S 7D", "newpoker"=>{}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 345)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-03 13:27:26 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"message"=>"4H 4D 3C 4C 10A, 1D 4C 7S 8S 7D", "newpoker"=>{}}
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 345)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-03 13:27:58 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["4H 4D 3C 4C 10A", "1D 4C 7S 8S 7D"], "newpoker"=>{"cards"=>["4H 4D 3C 4C 10A", "1D 4C 7S 8S 7D"]}}
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 348)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-03 13:28:12 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"message"=>"4H 4D 3C 4C 10S, 1D 4C 7S 8S 7D", "newpoker"=>{}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 336)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-03 13:28:24 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"message"=>"4H 4D 3C 5C 10S, 1D 4C 7S 8S 7D", "newpoker"=>{}}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 461)
+
+
+Started POST "/api/v1/newpoker" for ::1 at 2024-05-03 13:31:02 +0700
+  
+ActionController::RoutingError (No route matches [POST] "/api/v1/newpoker"):
+  
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-03 13:31:05 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["4H 4D 3C 4C 10A", "1D 4C 7S 8S 7D"], "newpoker"=>{"cards"=>["4H 4D 3C 4C 10A", "1D 4C 7S 8S 7D"]}}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 350)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-03 13:31:16 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["4H 4H 3C 4C 10A", "1D 1D 7S 8S 7D"], "newpoker"=>{"cards"=>["4H 4H 3C 4C 10A", "1D 1D 7S 8S 7D"]}}
+Completed 400 Bad Request in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 241)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-03 13:31:25 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["4H 4H 3C 4C 10A", "1D 1C 7S 8S 7D"], "newpoker"=>{"cards"=>["4H 4H 3C 4C 10A", "1D 1C 7S 8S 7D"]}}
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.0ms | Allocations: 8026)
+
+
+  
+NameError (undefined local variable or method `suit_values' for #<Api::V1::NewpokersController:0x0000000002d438>
+
+                        card1 = { point: 3, highest: 14, suit: suit_values[check[:suit]] }
+                                                               ^^^^^^^^^^^):
+  
+app/controllers/api/v1/newpokers_controller.rb:324:in `block in check2Pair'
+app/controllers/api/v1/newpokers_controller.rb:322:in `each'
+app/controllers/api/v1/newpokers_controller.rb:322:in `check2Pair'
+app/controllers/api/v1/newpokers_controller.rb:172:in `check_hand'
+app/controllers/api/v1/newpokers_controller.rb:44:in `block in create'
+app/controllers/api/v1/newpokers_controller.rb:32:in `each'
+app/controllers/api/v1/newpokers_controller.rb:32:in `create'
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-03 13:31:32 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["4H 4H 3C 4C 10A", "1D 4C 7S 8S 7D"], "newpoker"=>{"cards"=>["4H 4H 3C 4C 10A", "1D 4C 7S 8S 7D"]}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 353)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-03 13:31:42 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["4H 4H 3C 4C 10A", "1D 1C 7S 8S 7D"], "newpoker"=>{"cards"=>["4H 4H 3C 4C 10A", "1D 1C 7S 8S 7D"]}}
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.0ms | Allocations: 7952)
+
+
+  
+NameError (undefined local variable or method `suit_values' for #<Api::V1::NewpokersController:0x0000000002d780>
+
+                        card1 = { point: 3, highest: 14, suit: suit_values[check[:suit]] }
+                                                               ^^^^^^^^^^^):
+  
+app/controllers/api/v1/newpokers_controller.rb:324:in `block in check2Pair'
+app/controllers/api/v1/newpokers_controller.rb:322:in `each'
+app/controllers/api/v1/newpokers_controller.rb:322:in `check2Pair'
+app/controllers/api/v1/newpokers_controller.rb:172:in `check_hand'
+app/controllers/api/v1/newpokers_controller.rb:44:in `block in create'
+app/controllers/api/v1/newpokers_controller.rb:32:in `each'
+app/controllers/api/v1/newpokers_controller.rb:32:in `create'
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-03 13:42:27 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["4H 4H 3C 4C 10A", "1D 1C 7S 8S 7D"], "newpoker"=>{"cards"=>["4H 4H 3C 4C 10A", "1D 1C 7S 8S 7D"]}}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 5.8ms | Allocations: 6432)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass
+
+            if suit_values[card1[:suit]] > suit_values[card2[:suit]]
+                                                            ^^^^^^^):
+  
+app/controllers/api/v1/newpokers_controller.rb:342:in `check2Pair'
+app/controllers/api/v1/newpokers_controller.rb:172:in `check_hand'
+app/controllers/api/v1/newpokers_controller.rb:44:in `block in create'
+app/controllers/api/v1/newpokers_controller.rb:32:in `each'
+app/controllers/api/v1/newpokers_controller.rb:32:in `create'
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-03 13:42:54 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["4H 4H 3C 4C 10A", "1D 1C 7S 8S 7D"], "newpoker"=>{"cards"=>["4H 4H 3C 4C 10A", "1D 1C 7S 8S 7D"]}}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 4.8ms | Allocations: 6455)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass
+
+            if suit_values[card1[:suit]] > suit_values[card2[:suit]]
+                                                            ^^^^^^^):
+  
+app/controllers/api/v1/newpokers_controller.rb:343:in `check2Pair'
+app/controllers/api/v1/newpokers_controller.rb:172:in `check_hand'
+app/controllers/api/v1/newpokers_controller.rb:44:in `block in create'
+app/controllers/api/v1/newpokers_controller.rb:32:in `each'
+app/controllers/api/v1/newpokers_controller.rb:32:in `create'
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-03 13:43:12 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["4H 4H 3C 4C 10A", "1D 1C 7S 8S 7D"], "newpoker"=>{"cards"=>["4H 4H 3C 4C 10A", "1D 1C 7S 8S 7D"]}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 1.5ms | Allocations: 521)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-03 13:43:31 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["4C 4H 3C 7C 10A", "4D 4S 7S 8S 7D"], "newpoker"=>{"cards"=>["4C 4H 3C 7C 10A", "4D 4S 7S 8S 7D"]}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 400)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-03 13:43:38 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["4C 4H 3C 7C 10D", "4D 4S 7S 8S 7D"], "newpoker"=>{"cards"=>["4C 4H 3C 7C 10D", "4D 4S 7S 8S 7D"]}}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 517)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-03 13:44:44 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["4C 4H 3C 7C 10D", "4D 4S 7S 8S 7D"], "newpoker"=>{"cards"=>["4C 4H 3C 7C 10D", "4D 4S 7S 8S 7D"]}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 2.4ms | Allocations: 634)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-03 13:45:13 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["4C 4H 3C 3C 10D", "4D 4S 3D 3H 7D"], "newpoker"=>{"cards"=>["4C 4H 3C 3C 10D", "4D 4S 3D 3H 7D"]}}
+Completed 200 OK in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 402)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-03 13:45:23 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["4C 4H 3C 3S 10D", "4D 4S 3D 3H 7D"], "newpoker"=>{"cards"=>["4C 4H 3C 3S 10D", "4D 4S 3D 3H 7D"]}}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 561)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-03 13:45:41 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["4C 4H 1C 1S 10D", "4D 4S 1D 1H 7D"], "newpoker"=>{"cards"=>["4C 4H 1C 1S 10D", "4D 4S 1D 1H 7D"]}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 562)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-03 13:47:24 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["4C 4H 1C 1S 10D", "4D 4S 1D 1H 7D"], "newpoker"=>{"cards"=>["4C 4H 1C 1S 10D", "4D 4S 1D 1H 7D"]}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 1.7ms | Allocations: 626)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-03 13:47:39 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["4C 4H 1C 1S 10D", "4D 4S 1D 1H 7D"], "newpoker"=>{"cards"=>["4C 4H 1C 1S 10D", "4D 4S 1D 1H 7D"]}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 3.1ms | Allocations: 633)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-03 13:48:06 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["4C 4H 1C 1D 10D", "4D 4S 1C 1H 7D"], "newpoker"=>{"cards"=>["4C 4H 1C 1D 10D", "4D 4S 1C 1H 7D"]}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 375)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-03 13:48:19 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["4C 4H 1S 1D 10D", "4D 4S 1C 1H 7D"], "newpoker"=>{"cards"=>["4C 4H 1S 1D 10D", "4D 4S 1C 1H 7D"]}}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 506)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-03 13:51:15 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["4C 4H 3S 1D 10D", "4D 4S 3C 1H 7D"], "newpoker"=>{"cards"=>["4C 4H 3S 1D 10D", "4D 4S 3C 1H 7D"]}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 1.7ms | Allocations: 661)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-03 13:51:31 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["4C 5H 1S 1D 10D", "4D 5S 1C 1H 7D"], "newpoker"=>{"cards"=>["4C 5H 1S 1D 10D", "4D 5S 1C 1H 7D"]}}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 536)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-03 13:52:10 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["4C 5H 1S 1D 10D", "4D 5S 1C 1H 7D"], "newpoker"=>{"cards"=>["4C 5H 1S 1D 10D", "4D 5S 1C 1H 7D"]}}
+Completed 200 OK in 3ms (Views: 0.1ms | ActiveRecord: 3.4ms | Allocations: 661)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-03 13:52:17 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["4C 4H 1S 1D 10D", "4D 4S 1C 1H 7D"], "newpoker"=>{"cards"=>["4C 4H 1S 1D 10D", "4D 4S 1C 1H 7D"]}}
+Completed 200 OK in 1ms (Views: 0.5ms | ActiveRecord: 0.0ms | Allocations: 506)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-03 13:52:24 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["4C 6H 1S 1D 10D", "4D 6S 1C 1H 7D"], "newpoker"=>{"cards"=>["4C 6H 1S 1D 10D", "4D 6S 1C 1H 7D"]}}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 536)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-03 13:55:29 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["4C 6H 1S 1D 10D", "4D 6S 1C 1H 7D"], "newpoker"=>{"cards"=>["4C 6H 1S 1D 10D", "4D 6S 1C 1H 7D"]}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 3.1ms | Allocations: 662)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-03 13:55:34 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["4C 4H 1S 1D 10D", "4D 4S 1C 1H 7D"], "newpoker"=>{"cards"=>["4C 4H 1S 1D 10D", "4D 4S 1C 1H 7D"]}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 506)
+
+

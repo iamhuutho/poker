@@ -1,0 +1,40 @@
+<div class="text-custom">
+  <div class="custom">Hello from the other side. Please enter your data here.</div>
+  <%= form_tag("/api/v1/newpokers", method: "post", remote: true  ,class: "custom-form") do %>  <textarea name="message" id="card-list" rows="5" placeholder=""></textarea>
+    <br>
+    <div id="rendered-message"></div>  
+    <button type="submit">Submit</button>
+  <% end %>
+</div>
+
+<script>
+  document.querySelector(".custom-form").addEventListener("submit", function(event) { 
+    const message = document.getElementById("card-list").value.trim();
+    const renderedMessageElement = document.getElementById("rendered-message");
+    renderedMessageElement.textContent = "Your message has been submitted!";
+    renderedMessageElement.classList.add("message-style");
+
+  });
+</script>
+
+<style>
+  /* Add styles to your CSS file */
+  .text-custom{
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .custom{
+    display: flex;
+    justify-content: center;
+  }
+  .custom-form {
+    margin: 0 auto; 
+  }
+  .message-style {
+    color: green;
+    justify-content: center;
+    align-items:center;
+  }
+</style>
