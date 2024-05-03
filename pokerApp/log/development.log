@@ -2042,3 +2042,16 @@ Processing by Api::V1::NewpokersController#create as */*
 Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 2.5ms | Allocations: 339)
 
 
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-03 16:23:45 +0700
+  [1m[36mActiveRecord::SchemaMigration Load (4.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["6C 6H 6D 6H 9C", "7D 7S 7S 7D 13S", "13D 13S 13C 4C 4S"], "newpoker"=>{"cards"=>["6C 6H 6D 6H 9C", "7D 7S 7S 7D 13S", "13D 13S 13C 4C 4S"]}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 21.4ms | Allocations: 560)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-03 16:31:18 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["6C 6H 6D 6A 9C"], "newpoker"=>{"cards"=>["6C 6H 6D 6A 9C"]}}
+Completed 400 Bad Request in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 192)
+
+

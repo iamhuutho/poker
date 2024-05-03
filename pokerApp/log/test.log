@@ -2833,3 +2833,2135 @@ Processing by Api::V1::NewpokersController#create as HTML
   Parameters: {"cards"=>["1C 1H 4D 5H 9C", "1D 1S 6S 7D 13S", "13D 13S 6C 7C 8S"]}
 Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 580)
   [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Load (31.8ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (2.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[35m (86.9ms)[0m  [1m[35mDROP DATABASE IF EXISTS "poker_app_test"[0m
+  [1m[35m (333.1ms)[0m  [1m[35mCREATE DATABASE "poker_app_test" ENCODING = 'unicode'[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "articles" CASCADE[0m
+  [1m[35m (8.6ms)[0m  [1m[35mCREATE TABLE "articles" ("id" bigserial primary key, "title" character varying, "body" text, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "newpokers" CASCADE[0m
+  [1m[35m (4.3ms)[0m  [1m[35mCREATE TABLE "newpokers" ("id" bigserial primary key, "cards" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (4.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20240502082623)[0m
+  [1m[35m (4.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Create (1.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'test', '2024-05-03 09:19:35.537597', '2024-05-03 09:19:35.537700') RETURNING "key"[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('schema_sha1', '15f0a0f0e08627f9d9bd5f35d2ebda481e8f30c6', '2024-05-03 09:19:35.542399', '2024-05-03 09:19:35.542404') RETURNING "key"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (30.2ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:19:35 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["13D 10D 12D 1D 11D"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 485)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:19:35 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["13D 10D 11D 9D 12D"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 246)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:19:35 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["8H 10H 11H 9H 12H"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 249)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:19:35 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["8H 8C 8D 8S 12H"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 241)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:19:35 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["1H 1C 1D 1S 13H"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 241)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:19:35 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["1H 1C 1D 8S 8H", "2D 2C 2S 12D 12S"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 335)
+  [1m[36mTRANSACTION (17.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:19:35 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["1H 3H 9H 11H 6H", "2C 6C 7C 9C 13C"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 340)
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:19:35 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["1H 2C 3D 4H 5C", "2D 5S 6S 4D 3S", "10D 13C 12S 11D 1S"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 454)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:19:35 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["2H 2C 4D 4H 4C", "1D 1C 1S 6D 7S", "1D 11C 12S 1D 1S"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 361)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:19:35 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["2H 2C 4D 4H 9C", "1D 1C 6S 6D 13S", "13D 13S 3H 3C 8S"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 458)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:19:35 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["2H 2C 4D 5H 9C", "1D 1C 6S 7D 13S", "13D 13S 3H 7C 8S"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 485)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:19:35 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["1H 3C 4D 5H 9C", "3D 3S 6S 7D 13S"]}
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 427)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:19:35 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["1C 1H 4D 5H 9C", "1D 1S 6S 7D 13S", "13D 13S 6C 7C 8S"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 482)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (61.9ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:22:49 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["13D 10D 12D 1D 11D"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 485)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:22:49 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["13D 10D 11D 9D 12D"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 247)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:22:49 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["8H 10H 11H 9H 12H"]}
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 248)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:22:49 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["8H 8C 8D 8S 12H"]}
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms | Allocations: 241)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:22:49 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["1H 1C 1D 1S 13H"]}
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms | Allocations: 241)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:22:49 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["1H 1C 1D 8S 8H", "2D 2C 2S 12D 12S"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 335)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:22:49 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["1H 3H 9H 11H 6H", "2C 6C 7C 9C 13C"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 340)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:22:49 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["1H 2C 3D 4H 5C", "2D 5S 6S 4D 3S", "10D 13C 12S 11D 1S"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 454)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:22:49 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["2H 2C 4D 4H 4C", "1D 1C 1S 6D 7S", "1D 11C 12S 1D 1S"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 361)
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:22:49 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["2H 2C 4D 4H 9C", "1D 1C 6S 6D 13S", "13D 13S 3H 3C 8S"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 458)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:22:49 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["2H 2C 4D 5H 9C", "1D 1C 6S 7D 13S", "13D 13S 3H 7C 8S"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 485)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:22:49 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["1H 3C 4D 5H 9C", "3D 3S 6S 7D 13S"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 427)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:22:49 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["1C 1H 4D 5H 9C", "1D 1S 6S 7D 13S", "13D 13S 6C 7C 8S"]}
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms | Allocations: 482)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:22:49 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["6C 6H 6D 6H 9C", "7D 7S 7S 7D 13S", "13D 13S 13C 4C 4S"]}
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms | Allocations: 311)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (6.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (40.5ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:24:35 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["13D 10D 12D 1D 11D"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 485)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:24:35 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["13D 10D 11D 9D 12D"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 246)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:24:35 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["8H 10H 11H 9H 12H"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 248)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:24:35 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["8H 8C 8D 8S 12H"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 241)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:24:35 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["1H 1C 1D 1S 13H"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 241)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:24:35 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["1H 1C 1D 8S 8H", "2D 2C 2S 12D 12S"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 335)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:24:35 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["1H 3H 9H 11H 6H", "2C 6C 7C 9C 13C"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 340)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:24:35 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["1H 2C 3D 4H 5C", "2D 5S 6S 4D 3S", "10D 13C 12S 11D 1S"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 454)
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:24:35 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["2H 2C 4D 4H 4C", "1D 1C 1S 6D 7S", "1D 11C 12S 1D 1S"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 362)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:24:35 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["2H 2C 4D 4H 9C", "1D 1C 6S 6D 13S", "13D 13S 3H 3C 8S"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 458)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:24:35 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["2H 2C 4D 5H 9C", "1D 1C 6S 7D 13S", "13D 13S 3H 7C 8S"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 485)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:24:35 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["1H 3C 4D 5H 9C", "3D 3S 6S 7D 13S"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 427)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:24:35 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["1C 1H 4D 5H 9C", "1D 1S 6S 7D 13S", "13D 13S 6C 7C 8S"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 482)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:24:35 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["6C 6H 6D 6H 9C", "7D 7S 7C 7H 12S", "13D 13S 13C 4C 4S"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 371)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (59.4ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:24:50 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["13D 10D 12D 1D 11D"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 485)
+  [1m[36mTRANSACTION (65.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:24:50 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["13D 10D 11D 9D 12D"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 246)
+  [1m[36mTRANSACTION (4.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:24:50 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["8H 10H 11H 9H 12H"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 248)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:24:50 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["8H 8C 8D 8S 12H"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 241)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:24:50 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["1H 1C 1D 1S 13H"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 241)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:24:50 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["1H 1C 1D 8S 8H", "2D 2C 2S 12D 12S"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 335)
+  [1m[36mTRANSACTION (74.7ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:24:50 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["1H 3H 9H 11H 6H", "2C 6C 7C 9C 13C"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 340)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:24:50 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["1H 2C 3D 4H 5C", "2D 5S 6S 4D 3S", "10D 13C 12S 11D 1S"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 454)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:24:50 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["2H 2C 4D 4H 4C", "1D 1C 1S 6D 7S", "1D 11C 12S 1D 1S"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 362)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:24:50 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["2H 2C 4D 4H 9C", "1D 1C 6S 6D 13S", "13D 13S 3H 3C 8S"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 458)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:24:50 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["2H 2C 4D 5H 9C", "1D 1C 6S 7D 13S", "13D 13S 3H 7C 8S"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 485)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:24:50 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["1H 3C 4D 5H 9C", "3D 3S 6S 7D 13S"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 427)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:24:50 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["1C 1H 4D 5H 9C", "1D 1S 6S 7D 13S", "13D 13S 6C 7C 8S"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 482)
+  [1m[36mTRANSACTION (66.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:24:50 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["6C 6H 6D 6S 9C", "7D 7S 7C 7H 12S", "13D 13S 13C 4C 4S"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 423)
+  [1m[36mTRANSACTION (2.7ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Load (143.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:25:05 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["13D 10D 12D 1D 11D"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 484)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:25:05 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["13D 10D 11D 9D 12D"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 246)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:25:05 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["8H 10H 11H 9H 12H"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 248)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:25:05 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["8H 8C 8D 8S 12H"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 241)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:25:05 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["1H 1C 1D 1S 13H"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 241)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:25:05 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["1H 1C 1D 8S 8H", "2D 2C 2S 12D 12S"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 335)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:25:05 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["1H 3H 9H 11H 6H", "2C 6C 7C 9C 13C"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 340)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:25:05 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["1H 2C 3D 4H 5C", "2D 5S 6S 4D 3S", "10D 13C 12S 11D 1S"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 454)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:25:05 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["2H 2C 4D 4H 4C", "1D 1C 1S 6D 7S", "1D 11C 12S 1D 1S"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 361)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:25:05 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["2H 2C 4D 4H 9C", "1D 1C 6S 6D 13S", "13D 13S 3H 3C 8S"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 458)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:25:05 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["2H 2C 4D 5H 9C", "1D 1C 6S 7D 13S", "13D 13S 3H 7C 8S"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 485)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:25:05 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["1H 3C 4D 5H 9C", "3D 3S 6S 7D 13S"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 427)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:25:05 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["1C 1H 4D 5H 9C", "1D 1S 6S 7D 13S", "13D 13S 6C 7C 8S"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 482)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:25:05 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["6C 6H 6D 6S 9C", "7D 7S 7C 7H 12S", "13D 13S 13C 4C 4S"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 423)
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:27:25 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["13D 10D 12D 1D 11D"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 484)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:27:25 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["13D 10D 11D 9D 12D"]}
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms | Allocations: 246)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:27:25 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["8H 10H 11H 9H 12H"]}
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms | Allocations: 248)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:27:25 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["8H 8C 8D 8S 12H"]}
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms | Allocations: 241)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:27:25 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["1H 1C 1D 1S 13H"]}
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms | Allocations: 241)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:27:25 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["1H 1C 1D 8S 8H", "2D 2C 2S 12D 12S"]}
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms | Allocations: 335)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:27:25 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["1H 3H 9H 11H 6H", "2C 6C 7C 9C 13C"]}
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms | Allocations: 340)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:27:25 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["1H 2C 3D 4H 5C", "2D 5S 6S 4D 3S", "10D 13C 12S 11D 1S"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 454)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:27:25 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["2H 2C 4D 4H 4C", "1D 1C 1S 6D 7S", "1D 11C 12S 1D 1S"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 361)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:27:25 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["2H 2C 4D 4H 9C", "1D 1C 6S 6D 13S", "13D 13S 3H 3C 8S"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 458)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:27:25 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["2H 2C 4D 5H 9C", "1D 1C 6S 7D 13S", "13D 13S 3H 7C 8S"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 485)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:27:25 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["1H 3C 4D 5H 9C", "3D 3S 6S 7D 13S"]}
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms | Allocations: 427)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:27:25 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["1C 1H 4D 5H 9C", "1D 1S 6S 7D 13S", "13D 13S 6C 7C 8S"]}
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms | Allocations: 482)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:27:25 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["6C 6H 6D 6S 9C", "7D 7S 7C 7H 12S", "13D 13S 13C 4C 4S"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 423)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.5ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:27:33 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["13D 10D 12D 1D 11D"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 484)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:27:33 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["13D 10D 11D 9D 12D"]}
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms | Allocations: 246)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:27:33 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["8H 10H 11H 9H 12H"]}
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms | Allocations: 248)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:27:33 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["8H 8C 8D 8S 12H"]}
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms | Allocations: 241)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:27:33 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["1H 1C 1D 1S 13H"]}
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms | Allocations: 241)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:27:33 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["1H 1C 1D 8S 8H", "2D 2C 2S 12D 12S"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 335)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:27:33 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["1H 3H 9H 11H 6H", "2C 6C 7C 9C 13C"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 340)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:27:33 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["1H 2C 3D 4H 5C", "2D 5S 6S 4D 3S", "10D 13C 12S 11D 1S"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 454)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:27:33 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["2H 2C 4D 4H 4C", "1D 1C 1S 6D 7S", "1D 11C 12S 1D 1S"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 361)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:27:33 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["2H 2C 4D 4H 9C", "1D 1C 6S 6D 13S", "13D 13S 3H 3C 8S"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 458)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:27:33 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["2H 2C 4D 5H 9C", "1D 1C 6S 7D 13S", "13D 13S 3H 7C 8S"]}
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms | Allocations: 485)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:27:33 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["1H 3C 4D 5H 9C", "3D 3S 6S 7D 13S"]}
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms | Allocations: 427)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:27:33 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["1C 1H 4D 5H 9C", "1D 1S 6S 7D 13S", "13D 13S 6C 7C 8S"]}
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms | Allocations: 482)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:27:33 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["6C 6H 6D 6S 9C", "7D 7S 7C 7H 12S", "13D 13S 13C 4C 4S"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 423)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.5ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:29:38 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["13D 10D 12D 1D 11D"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 485)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:29:38 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["13D 10D 11D 9D 12D"]}
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms | Allocations: 246)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:29:38 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["8H 10H 11H 9H 12H"]}
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms | Allocations: 248)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:29:38 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["8H 8C 8D 8S 12H"]}
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms | Allocations: 241)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:29:38 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["1H 1C 1D 1S 13H"]}
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms | Allocations: 241)
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:29:38 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["1H 1C 1D 8S 8H", "2D 2C 2S 12D 12S"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 335)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:29:38 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["1H 3H 9H 11H 6H", "2C 6C 7C 9C 13C"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 340)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:29:38 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["1H 2C 3D 4H 5C", "2D 5S 6S 4D 3S", "10D 13C 12S 11D 1S"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 454)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:29:38 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["2H 2C 4D 4H 4C", "1D 1C 1S 6D 7S", "1D 11C 12S 1D 1S"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 361)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:29:38 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["2H 2C 4D 4H 9C", "1D 1C 6S 6D 13S", "13D 13S 3H 3C 8S"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 459)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:29:38 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["2H 2C 4D 5H 9C", "1D 1C 6S 7D 13S", "13D 13S 3H 7C 8S"]}
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms | Allocations: 485)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:29:38 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["1H 3C 4D 5H 9C", "3D 3S 6S 7D 13S"]}
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms | Allocations: 427)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:29:38 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["1C 1H 4D 5H 9C", "1D 1S 6S 7D 13S", "13D 13S 6C 7C 8S"]}
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms | Allocations: 482)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:29:38 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["6C 6H 6D 6S 9C", "7D 7S 7C 7H 12S", "13D 13S 13C 4C 4S"]}
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 423)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:29:38 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["6C 6H 6D 6S 9C"]}
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms | Allocations: 235)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:29:38 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["6C 6H 6D 6A 9C"]}
+Completed 400 Bad Request in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms | Allocations: 184)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:30:07 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["13D 10D 12D 1D 11D"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 485)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:30:07 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["13D 10D 11D 9D 12D"]}
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms | Allocations: 247)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (3.7ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:30:07 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["8H 10H 11H 9H 12H"]}
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms | Allocations: 248)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:30:07 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["8H 8C 8D 8S 12H"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 241)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:30:07 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["1H 1C 1D 1S 13H"]}
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms | Allocations: 241)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:30:07 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["1H 1C 1D 8S 8H", "2D 2C 2S 12D 12S"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 335)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:30:07 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["1H 3H 9H 11H 6H", "2C 6C 7C 9C 13C"]}
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms | Allocations: 340)
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:30:07 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["1H 2C 3D 4H 5C", "2D 5S 6S 4D 3S", "10D 13C 12S 11D 1S"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 454)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:30:07 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["2H 2C 4D 4H 4C", "1D 1C 1S 6D 7S", "1D 11C 12S 1D 1S"]}
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms | Allocations: 361)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:30:07 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["2H 2C 4D 4H 9C", "1D 1C 6S 6D 13S", "13D 13S 3H 3C 8S"]}
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms | Allocations: 458)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:30:07 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["2H 2C 4D 5H 9C", "1D 1C 6S 7D 13S", "13D 13S 3H 7C 8S"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 485)
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:30:07 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["1H 3C 4D 5H 9C", "3D 3S 6S 7D 13S"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 427)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:30:07 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["1C 1H 4D 5H 9C", "1D 1S 6S 7D 13S", "13D 13S 6C 7C 8S"]}
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 482)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:30:07 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["6C 6H 6D 6S 9C", "7D 7S 7C 7H 12S", "13D 13S 13C 4C 4S"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 423)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:30:07 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["6C 6H 6D 6S 9C"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 235)
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:30:07 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["6C 6H 6D 6A 9C"]}
+Completed 400 Bad Request in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 184)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/hello" for 127.0.0.1 at 2024-05-03 16:30:07 +0700
+  
+ActionController::RoutingError (No route matches [POST] "/api/v1/hello"):
+  
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:32:30 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["13D 10D 12D 1D 11D"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 485)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:32:30 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["13D 10D 11D 9D 12D"]}
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms | Allocations: 246)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:32:30 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["8H 10H 11H 9H 12H"]}
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms | Allocations: 248)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:32:30 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["8H 8C 8D 8S 12H"]}
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms | Allocations: 241)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:32:30 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["1H 1C 1D 1S 13H"]}
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms | Allocations: 241)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:32:30 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["1H 1C 1D 8S 8H", "2D 2C 2S 12D 12S"]}
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms | Allocations: 335)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:32:30 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["1H 3H 9H 11H 6H", "2C 6C 7C 9C 13C"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 340)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:32:30 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["1H 2C 3D 4H 5C", "2D 5S 6S 4D 3S", "10D 13C 12S 11D 1S"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 454)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:32:30 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["2H 2C 4D 4H 4C", "1D 1C 1S 6D 7S", "1D 11C 12S 1D 1S"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 362)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:32:30 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["2H 2C 4D 4H 9C", "1D 1C 6S 6D 13S", "13D 13S 3H 3C 8S"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 458)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:32:30 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["2H 2C 4D 5H 9C", "1D 1C 6S 7D 13S", "13D 13S 3H 7C 8S"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 485)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:32:30 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["1H 3C 4D 5H 9C", "3D 3S 6S 7D 13S"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 427)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:32:30 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["1C 1H 4D 5H 9C", "1D 1S 6S 7D 13S", "13D 13S 6C 7C 8S"]}
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms | Allocations: 482)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:32:30 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["6C 6H 6D 6S 9C", "7D 7S 7C 7H 12S", "13D 13S 13C 4C 4S"]}
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms | Allocations: 423)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:32:30 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["6C 6H 6D 6S 9C"]}
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms | Allocations: 235)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:32:30 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["6C 6H 6D 6A 9C"]}
+Completed 400 Bad Request in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms | Allocations: 184)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/hello" for 127.0.0.1 at 2024-05-03 16:32:30 +0700
+  
+ActionController::RoutingError (No route matches [POST] "/api/v1/hello"):
+  
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:32:30 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["6C 6H 6D 6S 9C"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 240)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.5ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:33:09 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["13D 10D 12D 1D 11D"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 485)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:33:09 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["13D 10D 11D 9D 12D"]}
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms | Allocations: 246)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:33:09 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["8H 10H 11H 9H 12H"]}
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms | Allocations: 248)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:33:09 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["8H 8C 8D 8S 12H"]}
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms | Allocations: 241)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:33:09 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["1H 1C 1D 1S 13H"]}
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms | Allocations: 241)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:33:09 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["1H 1C 1D 8S 8H", "2D 2C 2S 12D 12S"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 335)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:33:09 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["1H 3H 9H 11H 6H", "2C 6C 7C 9C 13C"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 340)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:33:09 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["1H 2C 3D 4H 5C", "2D 5S 6S 4D 3S", "10D 13C 12S 11D 1S"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 454)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:33:09 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["2H 2C 4D 4H 4C", "1D 1C 1S 6D 7S", "1D 11C 12S 1D 1S"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 362)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:33:09 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["2H 2C 4D 4H 9C", "1D 1C 6S 6D 13S", "13D 13S 3H 3C 8S"]}
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms | Allocations: 458)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:33:09 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["2H 2C 4D 5H 9C", "1D 1C 6S 7D 13S", "13D 13S 3H 7C 8S"]}
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms | Allocations: 485)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:33:09 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["1H 3C 4D 5H 9C", "3D 3S 6S 7D 13S"]}
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms | Allocations: 427)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:33:09 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["1C 1H 4D 5H 9C", "1D 1S 6S 7D 13S", "13D 13S 6C 7C 8S"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 482)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:33:09 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["6C 6H 6D 6S 9C", "7D 7S 7C 7H 12S", "13D 13S 13C 4C 4S"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 423)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:33:09 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["6C 6H 6D 6S 9C"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 235)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:33:09 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["6C 6H 6D 6A 9C"]}
+Completed 400 Bad Request in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms | Allocations: 184)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/hello" for 127.0.0.1 at 2024-05-03 16:33:09 +0700
+  
+ActionController::RoutingError (No route matches [POST] "/api/v1/hello"):
+  
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:33:10 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["6C 6H 6D 6S 9C"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 240)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.5ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:33:33 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["13D 10D 12D 1D 11D"]}
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 485)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:33:33 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["13D 10D 11D 9D 12D"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 246)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:33:33 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["8H 10H 11H 9H 12H"]}
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms | Allocations: 249)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:33:33 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["8H 8C 8D 8S 12H"]}
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms | Allocations: 241)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:33:33 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["1H 1C 1D 1S 13H"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 241)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:33:33 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["1H 1C 1D 8S 8H", "2D 2C 2S 12D 12S"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 335)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:33:33 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["1H 3H 9H 11H 6H", "2C 6C 7C 9C 13C"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 340)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:33:33 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["1H 2C 3D 4H 5C", "2D 5S 6S 4D 3S", "10D 13C 12S 11D 1S"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 454)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:33:33 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["2H 2C 4D 4H 4C", "1D 1C 1S 6D 7S", "1D 11C 12S 1D 1S"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 361)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:33:33 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["2H 2C 4D 4H 9C", "1D 1C 6S 6D 13S", "13D 13S 3H 3C 8S"]}
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms | Allocations: 458)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:33:33 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["2H 2C 4D 5H 9C", "1D 1C 6S 7D 13S", "13D 13S 3H 7C 8S"]}
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms | Allocations: 485)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:33:33 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["1H 3C 4D 5H 9C", "3D 3S 6S 7D 13S"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 427)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:33:33 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["1C 1H 4D 5H 9C", "1D 1S 6S 7D 13S", "13D 13S 6C 7C 8S"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 482)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:33:33 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["6C 6H 6D 6S 9C", "7D 7S 7C 7H 12S", "13D 13S 13C 4C 4S"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 423)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:33:33 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["6C 6H 6D 6S 9C"]}
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms | Allocations: 235)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:33:33 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["6C 6H 6D 6A 9C"]}
+Completed 400 Bad Request in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms | Allocations: 184)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/hello" for 127.0.0.1 at 2024-05-03 16:33:33 +0700
+  
+ActionController::RoutingError (No route matches [POST] "/api/v1/hello"):
+  
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:33:33 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["6C 6H 6D 6A 9C"]}
+Completed 400 Bad Request in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 186)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.5ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:34:23 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["13D 10D 12D 1D 11D"]}
+Completed 200 OK in 0ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 485)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:34:23 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["13D 10D 11D 9D 12D"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 246)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:34:23 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["8H 10H 11H 9H 12H"]}
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms | Allocations: 248)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:34:23 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["8H 8C 8D 8S 12H"]}
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms | Allocations: 241)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:34:23 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["1H 1C 1D 1S 13H"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 241)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:34:23 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["1H 1C 1D 8S 8H", "2D 2C 2S 12D 12S"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 335)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:34:23 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["1H 3H 9H 11H 6H", "2C 6C 7C 9C 13C"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 340)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:34:23 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["1H 2C 3D 4H 5C", "2D 5S 6S 4D 3S", "10D 13C 12S 11D 1S"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 454)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:34:23 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["2H 2C 4D 4H 4C", "1D 1C 1S 6D 7S", "1D 11C 12S 1D 1S"]}
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms | Allocations: 362)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:34:23 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["2H 2C 4D 4H 9C", "1D 1C 6S 6D 13S", "13D 13S 3H 3C 8S"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 458)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:34:23 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["2H 2C 4D 5H 9C", "1D 1C 6S 7D 13S", "13D 13S 3H 7C 8S"]}
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms | Allocations: 485)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:34:23 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["1H 3C 4D 5H 9C", "3D 3S 6S 7D 13S"]}
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms | Allocations: 427)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:34:23 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["1C 1H 4D 5H 9C", "1D 1S 6S 7D 13S", "13D 13S 6C 7C 8S"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 482)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:34:23 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["6C 6H 6D 6S 9C", "7D 7S 7C 7H 12S", "13D 13S 13C 4C 4S"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 423)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:34:23 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["6C 6H 6D 6S 9C"]}
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms | Allocations: 235)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:34:23 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["6C 6H 6D 6A 9C"]}
+Completed 400 Bad Request in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms | Allocations: 184)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/hello" for 127.0.0.1 at 2024-05-03 16:34:23 +0700
+  
+ActionController::RoutingError (No route matches [POST] "/api/v1/hello"):
+  
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:34:23 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["6C 6H 6D 6A 9C"]}
+Completed 400 Bad Request in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 186)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:34:23 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["6C 6H 6D 9C", "7C 7H 7D 8C 10D 12C"]}
+Completed 400 Bad Request in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms | Allocations: 177)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:34:35 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["13D 10D 12D 1D 11D"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 485)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:34:35 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["13D 10D 11D 9D 12D"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 246)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:34:35 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["8H 10H 11H 9H 12H"]}
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms | Allocations: 248)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:34:35 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["8H 8C 8D 8S 12H"]}
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms | Allocations: 241)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:34:35 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["1H 1C 1D 1S 13H"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 241)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:34:35 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["1H 1C 1D 8S 8H", "2D 2C 2S 12D 12S"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 335)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:34:35 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["1H 3H 9H 11H 6H", "2C 6C 7C 9C 13C"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 340)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:34:35 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["1H 2C 3D 4H 5C", "2D 5S 6S 4D 3S", "10D 13C 12S 11D 1S"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 454)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:34:35 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["2H 2C 4D 4H 4C", "1D 1C 1S 6D 7S", "1D 11C 12S 1D 1S"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 362)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:34:35 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["2H 2C 4D 4H 9C", "1D 1C 6S 6D 13S", "13D 13S 3H 3C 8S"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 458)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:34:35 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["2H 2C 4D 5H 9C", "1D 1C 6S 7D 13S", "13D 13S 3H 7C 8S"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 485)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:34:35 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["1H 3C 4D 5H 9C", "3D 3S 6S 7D 13S"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 427)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:34:35 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["1C 1H 4D 5H 9C", "1D 1S 6S 7D 13S", "13D 13S 6C 7C 8S"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 482)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:34:35 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["6C 6H 6D 6S 9C", "7D 7S 7C 7H 12S", "13D 13S 13C 4C 4S"]}
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 423)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:34:35 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["6C 6H 6D 6S 9C"]}
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms | Allocations: 235)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:34:35 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["6C 6H 6D 6A 9C"]}
+Completed 400 Bad Request in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 184)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/hello" for 127.0.0.1 at 2024-05-03 16:34:35 +0700
+  
+ActionController::RoutingError (No route matches [POST] "/api/v1/hello"):
+  
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:34:35 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["6C 6H 6D 6A 9C"]}
+Completed 400 Bad Request in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 186)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:34:35 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["6C 6H 6D 9C", "7C 7H 7D 8C 10D 12C"]}
+Completed 400 Bad Request in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 177)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:35:04 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["13D 10D 12D 1D 11D"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 485)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:35:04 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["13D 10D 11D 9D 12D"]}
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms | Allocations: 246)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:35:04 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["8H 10H 11H 9H 12H"]}
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms | Allocations: 249)
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:35:04 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["8H 8C 8D 8S 12H"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 241)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:35:04 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["1H 1C 1D 1S 13H"]}
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms | Allocations: 241)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:35:04 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["1H 1C 1D 8S 8H", "2D 2C 2S 12D 12S"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 335)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:35:04 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["1H 3H 9H 11H 6H", "2C 6C 7C 9C 13C"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 340)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:35:04 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["1H 2C 3D 4H 5C", "2D 5S 6S 4D 3S", "10D 13C 12S 11D 1S"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 454)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:35:04 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["2H 2C 4D 4H 4C", "1D 1C 1S 6D 7S", "1D 11C 12S 1D 1S"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 361)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:35:04 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["2H 2C 4D 4H 9C", "1D 1C 6S 6D 13S", "13D 13S 3H 3C 8S"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 458)
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:35:04 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["2H 2C 4D 5H 9C", "1D 1C 6S 7D 13S", "13D 13S 3H 7C 8S"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 485)
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:35:04 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["1H 3C 4D 5H 9C", "3D 3S 6S 7D 13S"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 427)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:35:04 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["1C 1H 4D 5H 9C", "1D 1S 6S 7D 13S", "13D 13S 6C 7C 8S"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 482)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:35:04 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["6C 6H 6D 6S 9C", "7D 7S 7C 7H 12S", "13D 13S 13C 4C 4S"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 423)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:35:04 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["6C 6H 6D 6S 9C"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 235)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:35:04 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["6C 6H 6D 6A 9C"]}
+Completed 400 Bad Request in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms | Allocations: 184)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/hello" for 127.0.0.1 at 2024-05-03 16:35:04 +0700
+  
+ActionController::RoutingError (No route matches [POST] "/api/v1/hello"):
+  
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:35:05 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["6C 6H 6D 6A 9C"]}
+Completed 400 Bad Request in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 186)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:35:05 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["6C 6H 6D 9C", "7C 7H 7D 8C 10D 12C"]}
+Completed 400 Bad Request in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 177)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:35:05 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["6C 6H 6D 9C 9C", "7C 7H 7D 8C 7H"]}
+Completed 400 Bad Request in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms | Allocations: 232)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.7ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:35:28 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["13D 10D 12D 1D 11D"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 485)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:35:28 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["13D 10D 11D 9D 12D"]}
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms | Allocations: 246)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:35:28 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["8H 10H 11H 9H 12H"]}
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms | Allocations: 248)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:35:28 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["8H 8C 8D 8S 12H"]}
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms | Allocations: 241)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:35:28 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["1H 1C 1D 1S 13H"]}
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms | Allocations: 241)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:35:28 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["1H 1C 1D 8S 8H", "2D 2C 2S 12D 12S"]}
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms | Allocations: 335)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:35:28 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["1H 3H 9H 11H 6H", "2C 6C 7C 9C 13C"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 340)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:35:28 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["1H 2C 3D 4H 5C", "2D 5S 6S 4D 3S", "10D 13C 12S 11D 1S"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 454)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:35:28 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["2H 2C 4D 4H 4C", "1D 1C 1S 6D 7S", "1D 11C 12S 1D 1S"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 362)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:35:28 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["2H 2C 4D 4H 9C", "1D 1C 6S 6D 13S", "13D 13S 3H 3C 8S"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 458)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:35:28 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["2H 2C 4D 5H 9C", "1D 1C 6S 7D 13S", "13D 13S 3H 7C 8S"]}
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms | Allocations: 485)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:35:28 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["1H 3C 4D 5H 9C", "3D 3S 6S 7D 13S"]}
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms | Allocations: 427)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:35:28 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["1C 1H 4D 5H 9C", "1D 1S 6S 7D 13S", "13D 13S 6C 7C 8S"]}
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms | Allocations: 482)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:35:28 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["6C 6H 6D 6S 9C", "7D 7S 7C 7H 12S", "13D 13S 13C 4C 4S"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 423)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:35:28 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["6C 6H 6D 6S 9C"]}
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms | Allocations: 235)
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:35:28 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["6C 6H 6D 6A 9C"]}
+Completed 400 Bad Request in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms | Allocations: 184)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/hello" for 127.0.0.1 at 2024-05-03 16:35:28 +0700
+  
+ActionController::RoutingError (No route matches [POST] "/api/v1/hello"):
+  
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:35:28 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["6C 6H 6D 6A 9C"]}
+Completed 400 Bad Request in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 186)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:35:28 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["6C 6H 6D 9C", "7C 7H 7D 8C 10D 12C"]}
+Completed 400 Bad Request in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms | Allocations: 177)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:35:28 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["6C 6H 6D 9C 9C", "7C 7H 7D 7H 8H"]}
+Completed 400 Bad Request in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms | Allocations: 227)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:35:46 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["13D 10D 12D 1D 11D"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 485)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:35:46 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["13D 10D 11D 9D 12D"]}
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms | Allocations: 246)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:35:46 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["8H 10H 11H 9H 12H"]}
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms | Allocations: 248)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:35:46 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["8H 8C 8D 8S 12H"]}
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms | Allocations: 241)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:35:46 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["1H 1C 1D 1S 13H"]}
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms | Allocations: 241)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:35:46 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["1H 1C 1D 8S 8H", "2D 2C 2S 12D 12S"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 335)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:35:46 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["1H 3H 9H 11H 6H", "2C 6C 7C 9C 13C"]}
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms | Allocations: 340)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:35:46 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["1H 2C 3D 4H 5C", "2D 5S 6S 4D 3S", "10D 13C 12S 11D 1S"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 454)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:35:46 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["2H 2C 4D 4H 4C", "1D 1C 1S 6D 7S", "1D 11C 12S 1D 1S"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 362)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:35:46 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["2H 2C 4D 4H 9C", "1D 1C 6S 6D 13S", "13D 13S 3H 3C 8S"]}
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms | Allocations: 458)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:35:46 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["2H 2C 4D 5H 9C", "1D 1C 6S 7D 13S", "13D 13S 3H 7C 8S"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 485)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:35:46 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["1H 3C 4D 5H 9C", "3D 3S 6S 7D 13S"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 427)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:35:46 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["1C 1H 4D 5H 9C", "1D 1S 6S 7D 13S", "13D 13S 6C 7C 8S"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 482)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:35:46 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["6C 6H 6D 6S 9C", "7D 7S 7C 7H 12S", "13D 13S 13C 4C 4S"]}
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms | Allocations: 423)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:35:46 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["6C 6H 6D 6S 9C"]}
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms | Allocations: 235)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:35:46 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["6C 6H 6D 6A 9C"]}
+Completed 400 Bad Request in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms | Allocations: 184)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/hello" for 127.0.0.1 at 2024-05-03 16:35:46 +0700
+  
+ActionController::RoutingError (No route matches [POST] "/api/v1/hello"):
+  
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:35:46 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["6C 6H 6D 6A 9C"]}
+Completed 400 Bad Request in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 186)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:35:46 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["6C 6H 6D 9C", "7C 7H 7D 8C 10D 12C"]}
+Completed 400 Bad Request in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms | Allocations: 177)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:35:46 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["6C 6H 6D 9C 9C", "7C 7H 7D 7H 8H"]}
+Completed 400 Bad Request in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms | Allocations: 227)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:36:51 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["13D 10D 12D 1D 11D"]}
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 485)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:36:51 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["13D 10D 11D 9D 12D"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 246)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:36:51 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["8H 10H 11H 9H 12H"]}
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms | Allocations: 248)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:36:51 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["8H 8C 8D 8S 12H"]}
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms | Allocations: 241)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:36:51 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["1H 1C 1D 1S 13H"]}
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms | Allocations: 241)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:36:51 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["1H 1C 1D 8S 8H", "2D 2C 2S 12D 12S"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 335)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:36:51 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["1H 3H 9H 11H 6H", "2C 6C 7C 9C 13C"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 340)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:36:51 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["1H 2C 3D 4H 5C", "2D 5S 6S 4D 3S", "10D 13C 12S 11D 1S"]}
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 455)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:36:51 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["2H 2C 4D 4H 4C", "1D 1C 1S 6D 7S", "1D 11C 12S 1D 1S"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 361)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:36:51 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["2H 2C 4D 4H 9C", "1D 1C 6S 6D 13S", "13D 13S 3H 3C 8S"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 458)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:36:51 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["2H 2C 4D 5H 9C", "1D 1C 6S 7D 13S", "13D 13S 3H 7C 8S"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 485)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:36:51 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["1H 3C 4D 5H 9C", "3D 3S 6S 7D 13S"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 427)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:36:51 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["1C 1H 4D 5H 9C", "1D 1S 6S 7D 13S", "13D 13S 6C 7C 8S"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 482)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:36:51 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["6C 6H 6D 6S 9C", "7D 7S 7C 7H 12S", "13D 13S 13C 4C 4S"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 423)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:36:51 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["6C 6H 6D 6S 9C"]}
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms | Allocations: 235)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:36:51 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["6C 6H 6D 6A 9C"]}
+Completed 400 Bad Request in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 184)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/hello" for 127.0.0.1 at 2024-05-03 16:36:51 +0700
+  
+ActionController::RoutingError (No route matches [POST] "/api/v1/hello"):
+  
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:36:51 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["6C 6H 6D 6A 9C"]}
+Completed 400 Bad Request in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 186)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:36:51 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["6C 6H 6D 9C", "7C 7H 7D 8C 10D 12C"]}
+Completed 400 Bad Request in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms | Allocations: 177)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:36:51 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["6C 6H 6D 9C 9C", "7C 7H 7D 7H 8H"]}
+Completed 400 Bad Request in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms | Allocations: 227)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:36:51 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["6C 6H 6D 9C 9C", "6A 10H 11C", "6D 10H 11C 1D 1S", "7C 7H 7D 7H 8H"]}
+Completed 400 Bad Request in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms | Allocations: 261)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:37:03 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["13D 10D 12D 1D 11D"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 484)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:37:03 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["13D 10D 11D 9D 12D"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 246)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:37:03 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["8H 10H 11H 9H 12H"]}
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms | Allocations: 248)
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:37:03 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["8H 8C 8D 8S 12H"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 241)
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:37:03 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["1H 1C 1D 1S 13H"]}
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms | Allocations: 241)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:37:03 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["1H 1C 1D 8S 8H", "2D 2C 2S 12D 12S"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 335)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:37:03 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["1H 3H 9H 11H 6H", "2C 6C 7C 9C 13C"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 340)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:37:03 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["1H 2C 3D 4H 5C", "2D 5S 6S 4D 3S", "10D 13C 12S 11D 1S"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 454)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:37:03 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["2H 2C 4D 4H 4C", "1D 1C 1S 6D 7S", "1D 11C 12S 1D 1S"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 361)
+  [1m[36mTRANSACTION (3.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:37:03 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["2H 2C 4D 4H 9C", "1D 1C 6S 6D 13S", "13D 13S 3H 3C 8S"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 458)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:37:03 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["2H 2C 4D 5H 9C", "1D 1C 6S 7D 13S", "13D 13S 3H 7C 8S"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 485)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:37:03 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["1H 3C 4D 5H 9C", "3D 3S 6S 7D 13S"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 427)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:37:03 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["1C 1H 4D 5H 9C", "1D 1S 6S 7D 13S", "13D 13S 6C 7C 8S"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 482)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:37:03 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["6C 6H 6D 6S 9C", "7D 7S 7C 7H 12S", "13D 13S 13C 4C 4S"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 423)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:37:03 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["6C 6H 6D 6S 9C"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 241)
+  [1m[36mTRANSACTION (9.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:37:03 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["6C 6H 6D 6A 9C"]}
+Completed 400 Bad Request in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 184)
+  [1m[36mTRANSACTION (2.7ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/hello" for 127.0.0.1 at 2024-05-03 16:37:03 +0700
+  
+ActionController::RoutingError (No route matches [POST] "/api/v1/hello"):
+  
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:37:03 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["6C 6H 6D 6A 9C"]}
+Completed 400 Bad Request in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 186)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:37:03 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["6C 6H 6D 9C", "7C 7H 7D 8C 10D 12C"]}
+Completed 400 Bad Request in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms | Allocations: 177)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:37:03 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["6C 6H 6D 9C 9C", "7C 7H 7D 7H 8H"]}
+Completed 400 Bad Request in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms | Allocations: 227)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:37:03 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["6C 6H 6D 9C 9C", "6A 10H 11C", "6D 10H 11C 1D 1S", "7C 7H 7D 7H 8H"]}
+Completed 400 Bad Request in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms | Allocations: 261)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.6ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:37:25 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["13D 10D 12D 1D 11D"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 485)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:37:25 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["13D 10D 11D 9D 12D"]}
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms | Allocations: 246)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:37:25 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["8H 10H 11H 9H 12H"]}
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms | Allocations: 248)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:37:25 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["8H 8C 8D 8S 12H"]}
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms | Allocations: 241)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:37:25 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["1H 1C 1D 1S 13H"]}
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms | Allocations: 241)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:37:25 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["1H 1C 1D 8S 8H", "2D 2C 2S 12D 12S"]}
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms | Allocations: 335)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:37:25 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["1H 3H 9H 11H 6H", "2C 6C 7C 9C 13C"]}
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms | Allocations: 340)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:37:25 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["1H 2C 3D 4H 5C", "2D 5S 6S 4D 3S", "10D 13C 12S 11D 1S"]}
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms | Allocations: 454)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:37:25 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["2H 2C 4D 4H 4C", "1D 1C 1S 6D 7S", "1D 11C 12S 1D 1S"]}
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms | Allocations: 362)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:37:25 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["2H 2C 4D 4H 9C", "1D 1C 6S 6D 13S", "13D 13S 3H 3C 8S"]}
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms | Allocations: 458)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:37:25 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["2H 2C 4D 5H 9C", "1D 1C 6S 7D 13S", "13D 13S 3H 7C 8S"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 485)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:37:25 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["1H 3C 4D 5H 9C", "3D 3S 6S 7D 13S"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 427)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:37:25 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["1C 1H 4D 5H 9C", "1D 1S 6S 7D 13S", "13D 13S 6C 7C 8S"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 482)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:37:25 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["6C 6H 6D 6S 9C", "7D 7S 7C 7H 12S", "13D 13S 13C 4C 4S"]}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 423)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:37:25 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["6C 6H 6D 6S 9C"]}
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms | Allocations: 235)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:37:25 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["6C 6H 6D 6A 9C"]}
+Completed 400 Bad Request in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms | Allocations: 184)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/hello" for 127.0.0.1 at 2024-05-03 16:37:25 +0700
+  
+ActionController::RoutingError (No route matches [POST] "/api/v1/hello"):
+  
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:37:25 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["6C 6H 6D 6A 9C"]}
+Completed 400 Bad Request in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 186)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:37:25 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["6C 6H 6D 9C", "7C 7H 7D 8C 10D 12C"]}
+Completed 400 Bad Request in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms | Allocations: 177)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:37:25 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["6C 6H 6D 9C 9C", "7C 7H 7D 7H 8H"]}
+Completed 400 Bad Request in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms | Allocations: 227)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/api/v1/newpokers" for 127.0.0.1 at 2024-05-03 16:37:25 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"cards"=>["6C 6H 6D 9C 9C", "6A 10H 11C", "6D 10H 11C 1D 1S", "7C 7H 7D 7H 8H"]}
+Completed 400 Bad Request in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms | Allocations: 261)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
