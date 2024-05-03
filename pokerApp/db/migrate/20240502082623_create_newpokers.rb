@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateNewpokers < ActiveRecord::Migration[7.1]
   def change
     create_table :newpokers do |t|

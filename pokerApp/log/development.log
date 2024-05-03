@@ -1930,3 +1930,115 @@ Processing by Api::V1::NewpokersController#create as */*
 Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 9.2ms | Allocations: 812)
 
 
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-03 14:30:46 +0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["4C 4H 1S 1D 10D", "4D 4S 1C 1H 7D"], "newpoker"=>{"cards"=>["4C 4H 1S 1D 10D", "4D 4S 1C 1H 7D"]}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 11.0ms | Allocations: 812)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-03 14:30:58 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["4C 4H 1S 1D 1H", "4D 4S 1C 8H 7D"], "newpoker"=>{"cards"=>["4C 4H 1S 1D 1H", "4D 4S 1C 8H 7D"]}}
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 531)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-03 15:04:44 +0700
+  [1m[36mActiveRecord::SchemaMigration Load (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["4C 4H 1S 1D 1H", "4D 4S 1C 8H 7D"], "newpoker"=>{"cards"=>["4C 4H 1S 1D 1H", "4D 4S 1C 8H 7D"]}}
+Completed 500 Internal Server Error in 28ms (ActiveRecord: 20.2ms | Allocations: 8735)
+
+
+  
+NameError (undefined local variable or method `_' for #<Api::V1::NewpokersController:0x0000000000bab8>
+
+            if check[:value].to_i == _
+                                     ^):
+  
+app/controllers/api/v1/newpokers_controller.rb:376:in `block in check1Pair'
+app/controllers/api/v1/newpokers_controller.rb:375:in `each'
+app/controllers/api/v1/newpokers_controller.rb:375:in `check1Pair'
+app/controllers/api/v1/newpokers_controller.rb:146:in `check_hand'
+app/controllers/api/v1/newpokers_controller.rb:48:in `block in create'
+app/controllers/api/v1/newpokers_controller.rb:36:in `each'
+app/controllers/api/v1/newpokers_controller.rb:36:in `create'
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-03 15:06:30 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["4C 4H 1S 1D 1H", "4D 4S 1C 8H 7D"], "newpoker"=>{"cards"=>["4C 4H 1S 1D 1H", "4D 4S 1C 8H 7D"]}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 1.7ms | Allocations: 550)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-03 15:06:41 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["4C 4H 1S 1D 1H", "4D 1D 1C 8H 7D"], "newpoker"=>{"cards"=>["4C 4H 1S 1D 1H", "4D 1D 1C 8H 7D"]}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 216)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-03 15:06:58 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["4C 4H 1S 4D 1H", "4S 1D 1C 8H 7D"], "newpoker"=>{"cards"=>["4C 4H 1S 4D 1H", "4S 1D 1C 8H 7D"]}}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 339)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-03 15:12:30 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["4C 3H 1S 2D 5H", "4S 1D 1C 8H 7D"], "newpoker"=>{"cards"=>["4C 3H 1S 2D 5H", "4S 1D 1C 8H 7D"]}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 5.5ms | Allocations: 474)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-03 15:12:42 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["4C 3C 1C 2C 5C", "4S 1D 1D 8H 7D"], "newpoker"=>{"cards"=>["4C 3C 1C 2C 5C", "4S 1D 1D 8H 7D"]}}
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 222)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-03 15:12:47 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["9C 3C 1C 2C 5C", "4S 1D 1D 8H 7D"], "newpoker"=>{"cards"=>["9C 3C 1C 2C 5C", "4S 1D 1D 8H 7D"]}}
+Completed 200 OK in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 221)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-03 15:16:46 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["9C 3C 1C 2C 5C", "4S 1D 1D 8H 7D"], "newpoker"=>{"cards"=>["9C 3C 1C 2C 5C", "4S 1D 1D 8H 7D"]}}
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 6.8ms | Allocations: 4810)
+
+
+  
+NoMethodError (undefined method `checkStraight' for #<Api::V1::NewpokersController:0x000000000179d0>
+
+        if (checkStraight(cards)[:point] == 5) && (checkFlush(cards)[:point] == 6)
+            ^^^^^^^^^^^^^
+Did you mean?  check_straight):
+  
+app/controllers/api/v1/newpokers_controller.rb:156:in `check_straight_flush'
+app/controllers/api/v1/newpokers_controller.rb:152:in `check_royal_flush'
+app/controllers/api/v1/newpokers_controller.rb:138:in `check_hand'
+app/controllers/api/v1/newpokers_controller.rb:48:in `block in create'
+app/controllers/api/v1/newpokers_controller.rb:36:in `each'
+app/controllers/api/v1/newpokers_controller.rb:36:in `create'
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-03 15:17:16 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["9C 3C 1C 2C 5C", "4S 1D 1D 8H 7D"], "newpoker"=>{"cards"=>["9C 3C 1C 2C 5C", "4S 1D 1D 8H 7D"]}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 1.5ms | Allocations: 344)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-03 15:20:25 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["9C 3C 1C 2C 5C", "4S 1D 1D 8H 7D"], "newpoker"=>{"cards"=>["9C 3C 1C 2C 5C", "4S 1D 1D 8H 7D"]}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 3.2ms | Allocations: 339)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-03 15:21:08 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["9C 3C 1C 2C 5C", "4S 1D 1D 8H 7D"], "newpoker"=>{"cards"=>["9C 3C 1C 2C 5C", "4S 1D 1D 8H 7D"]}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 2.1ms | Allocations: 339)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-03 15:22:44 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["9C 3C 1C 2C 5C", "4S 1D 1D 8H 7D"], "newpoker"=>{"cards"=>["9C 3C 1C 2C 5C", "4S 1D 1D 8H 7D"]}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 2.5ms | Allocations: 339)
+
+
