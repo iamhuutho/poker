@@ -1923,3 +1923,10 @@ Processing by Api::V1::NewpokersController#create as */*
 Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 506)
 
 
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-03 14:26:50 +0700
+  [1m[36mActiveRecord::SchemaMigration Load (2.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["4C 4H 1S 1D 10D", "4D 4S 1C 1H 7D"], "newpoker"=>{"cards"=>["4C 4H 1S 1D 10D", "4D 4S 1C 1H 7D"]}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 9.2ms | Allocations: 812)
+
+
