@@ -7,7 +7,9 @@
       </div>
       <br>
       <button type="button" :disabled="!formData" @click="handleSubmit">Submit</button>
-      <div v-if="submitted">The best poker hand is {{ response.card }}. Hand: {{ response.hand }}</div> </form>
+      <div v-if="submitted">The best poker hand is {{ response.card }}. Hand: {{ response.hand }}</div>
+      <div v-if="isErr">{{ errMessage }}</div> 
+     </form>
   </div>
 </template>
 
@@ -23,6 +25,8 @@ export default {
         card: "",
         hand: ""   
       },
+      errMessage: "",
+      isErr: false,
     };
   },
   methods: {
@@ -32,15 +36,19 @@ export default {
       try {
         const response = await axios.post(url, { message: this.formData });
         const flag = response.data.successes.length > 0
+        console.log("FLAG", flag)
         if (flag){
           const temp = response.data.successes[0];
           this.response.card = temp.Card
           this.response.hand = temp.Hand
           this.submitted = true
+          this.isErr = false
         }
-        console.log(response);
       } catch (error) {
-        console.error(error); 
+          const errList = error.response.data.errors
+          this.errMessage = errList[0].message
+          this.isErr = true
+          this.submitted = false
       }
     },
   },
@@ -48,7 +56,6 @@ export default {
 </script>
 
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 h3 {
   margin: 40px 0 0;

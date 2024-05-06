@@ -5,7 +5,6 @@ module Api
     class NewpokersController < ApplicationController
       def index
         newpokers = Newpoker.all
-
         if newpokers.present?
           render json: { status: 200, data: newpokers }, status: :ok
         else
@@ -15,23 +14,17 @@ module Api
 
       def create
         cardlist = []
-        if !params.key?(:message) and !params.key?(:cards)
-          render "Invallid input format", status: 400
-        end
+        render 'Invallid input format', status: 400 if !params.key?(:message) and !params.key?(:cards)
+        # Handle message passed from WebApplication or API endpoint
         if params.key?(:message)
           message_from_web = params[:message]
           cardlist = message_from_web.split(',')
-        # newpoker = Newpoker.new(cards: cardlist)
-        # newpoker.save
-        # if newpoker.save
-        #     redirect_to('/')
-        # end
         else
           cardlist = params[:cards]
         end
-
-        if(cardlist.kind_of?(Array) == false)
-          render json:{message: "Invallid input format"}, status: 400
+        # If input is not an array of strings, then return "Invalid input format"
+        if cardlist.is_a?(Array) == false
+          render json: { message: 'Invallid input format' }, status: 400
           return
         end
         items = []
@@ -47,19 +40,22 @@ module Api
             error_list.push({ card: card_hand, message: 'Please enter 5 cards' })
             next
           end
+          # Check validity of each hand (different from 5 cards, invallid cards, duplicated cards)
           check = check_valid_card_list(each_hand, hash_table)
           hash_table = check[:updated_hash_table]
           unless check[:status]
             error_list.push({ card: card_hand, message: check[:message] })
             next
           end
+          # Check the poker hand of each cards. For example: C1 C2 C3 C4 C5 => Straight Flush
           check_hand = check_hand(each_hand)
           success_list.push(x: check_hand, y: each_hand)
         end
         if success_list.empty?
           render json: { successes: [], errors: error_list }, status: 400
-          return 
+          return
         end
+        # Sort the success list by point, highest card, suit to find the strongest hand.
         new_success_list = success_list.sort do |a, b|
           point_comparison = b[:x][:point] <=> a[:x][:point]
           highest_comparison = point_comparison.zero? ? b[:x][:highest] <=> a[:x][:highest] : point_comparison
@@ -92,14 +88,16 @@ module Api
         end
         render json: { successes: final_sucess_list, errors: error_list }, status: 200
       end
+
       private
+
       def check_valid_card_list(cards, hash_table)
         if cards.length != 5
           return { status: false, message: 'Please enter only 5 cards',
                    updated_hash_table: hash_table }
         end
         check_invallid_card = true
-        invallid_list = ""
+        invallid_list = ''
         cards.each_with_index do |card, index|
           unless check_valid_single_card(card)
             check_invallid_card = false
@@ -111,9 +109,8 @@ module Api
           end
           hash_table[card] = 1
         end
-        if check_invallid_card == false
-          return { status: false, message: invallid_list, updated_hash_table: hash_table }              
-        end
+        return { status: false, message: invallid_list, updated_hash_table: hash_table } if check_invallid_card == false
+
         { status: true, updated_hash_table: hash_table }
       end
 
@@ -158,12 +155,10 @@ module Api
           check_three_kind(sorted_cards),
           check_two_pair(sorted_cards),
           check_one_pair(sorted_cards),
-          check_high_card(sorted_cards),
-        ] 
+          check_high_card(sorted_cards)
+        ]
         for check in check_functions
-          if check[:point].positive?
-            return check
-          end
+          return check if check[:point].positive?
         end
       end
 
@@ -246,12 +241,11 @@ module Api
         }
         check = cards[0][:suit]
         for card in cards
-          if card[:suit]!= check
-            return { point: 0, highest: 0, suit: 0 }
-          end    
+          return { point: 0, highest: 0, suit: 0 } if card[:suit] != check
         end
         return { point: 6, highest: 14, suit: suit_values[cards[0][:suit]] } if cards[0][:value].to_i == 1
-        return { point: 6, highest: cards[4][:value], suit: suit_values[cards[0][:suit]] } 
+
+        { point: 6, highest: cards[4][:value], suit: suit_values[cards[0][:suit]] }
       end
 
       def check_straight(cards)
@@ -265,35 +259,30 @@ module Api
           check = cards[1][:value].to_i - 1
           flag = true
           cards.each_with_index do |card, index|
-            if index == 0 or index == cards.size - 1
-              next
-            end
-            if(card[:value].to_i == check + 1)
+            next if index == 0 or index == cards.size - 1
+
+            if card[:value].to_i == check + 1
               check += 1
             else
               flag = false
               break
             end
           end
-          if flag
-            return { point: 5, highest: 14, suit: suit_values[cards[0][:suit]] }
-          end
+          return { point: 5, highest: 14, suit: suit_values[cards[0][:suit]] } if flag
         else
           check = cards[0][:value].to_i - 1
           flag = true
           for card in cards
-            if(card[:value].to_i == check + 1)
+            if card[:value].to_i == check + 1
               check += 1
             else
               flag = false
               break
             end
           end
-          if flag
-            return { point: 5, highest: cards[4][:value].to_i, suit: suit_values[cards[0][:suit]] }
-          end  
+          return { point: 5, highest: cards[4][:value].to_i, suit: suit_values[cards[0][:suit]] } if flag
         end
-        return { point: 0, highest: 0, suit: 0 }
+        { point: 0, highest: 0, suit: 0 }
       end
 
       def check_three_kind(cards)
@@ -436,6 +425,7 @@ module Api
 
         { point: 1, highest: cards[4][:value].to_i, suit: suit_values[cards[4][:suit]] }
       end
+
       def newpoker_params; end
     end
   end

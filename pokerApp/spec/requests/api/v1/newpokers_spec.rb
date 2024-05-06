@@ -4,7 +4,7 @@ require 'rails_helper'
 
 RSpec.describe 'Api::V1::Newpokers', type: :request do
   describe 'POST /api/v1/newpokers' do
-    context "normal testcase" do
+    context 'normal testcase' do
       it 'checkRoyalFlush1' do
         post '/api/v1/newpokers', params: {
           cards: [
@@ -15,7 +15,7 @@ RSpec.describe 'Api::V1::Newpokers', type: :request do
         expect(json[:successes][0][:Hand]).to eq('Straight Flush')
         expect(json[:successes][0][:Debug][:highest]).to eq(14)
       end
-  
+
       it 'checkStraightFlush1' do
         post '/api/v1/newpokers', params: {
           cards: [
@@ -26,7 +26,7 @@ RSpec.describe 'Api::V1::Newpokers', type: :request do
         expect(json[:successes][0][:Hand]).to eq('Straight Flush')
         expect(json[:successes][0][:Debug][:highest]).to eq(13)
       end
-  
+
       it 'checkStraightFlush3' do
         post '/api/v1/newpokers', params: {
           cards: [
@@ -37,7 +37,7 @@ RSpec.describe 'Api::V1::Newpokers', type: :request do
         expect(json[:successes][0][:Hand]).to eq('Straight Flush')
         expect(json[:successes][0][:Debug][:highest]).to eq(12)
       end
-  
+
       it 'checkFourKind1' do
         post '/api/v1/newpokers', params: {
           cards: [
@@ -48,7 +48,7 @@ RSpec.describe 'Api::V1::Newpokers', type: :request do
         expect(json[:successes][0][:Hand]).to eq('Four Kind')
         expect(json[:successes][0][:Debug][:highest]).to eq(8)
       end
-  
+
       it 'checkFourKind2' do
         post '/api/v1/newpokers', params: {
           cards: [
@@ -59,7 +59,7 @@ RSpec.describe 'Api::V1::Newpokers', type: :request do
         expect(json[:successes][0][:Hand]).to eq('Four Kind')
         expect(json[:successes][0][:Debug][:highest]).to eq(14)
       end
-  
+
       it 'checkFullHouse' do
         post '/api/v1/newpokers', params: {
           cards: [
@@ -73,7 +73,7 @@ RSpec.describe 'Api::V1::Newpokers', type: :request do
         expect(json[:successes][0][:Debug][:highest]).to eq(14)
         expect(json[:successes][1][:Debug][:highest]).to eq(2)
       end
-  
+
       it 'checkFlush' do
         post '/api/v1/newpokers', params: {
           cards: [
@@ -87,7 +87,7 @@ RSpec.describe 'Api::V1::Newpokers', type: :request do
         expect(json[:successes][0][:Debug][:highest]).to eq(14)
         expect(json[:successes][1][:Debug][:highest]).to eq(13)
       end
-  
+
       it 'checkStraight' do
         post '/api/v1/newpokers', params: {
           cards: [
@@ -104,7 +104,7 @@ RSpec.describe 'Api::V1::Newpokers', type: :request do
         expect(json[:successes][1][:Debug][:highest]).to eq(6)
         expect(json[:successes][2][:Debug][:highest]).to eq(5)
       end
-  
+
       it 'checkThreeKind' do
         post '/api/v1/newpokers', params: {
           cards: [
@@ -120,7 +120,7 @@ RSpec.describe 'Api::V1::Newpokers', type: :request do
         expect(json[:successes][1][:Debug][:highest]).to eq(14)
         expect(json[:errors].length == 1)
       end
-  
+
       it 'checkTwoPair' do
         post '/api/v1/newpokers', params: {
           cards: [
@@ -136,7 +136,7 @@ RSpec.describe 'Api::V1::Newpokers', type: :request do
         expect(json[:successes][1][:Debug][:highest]).to eq(4)
         expect(json[:errors].length == 1)
       end
-  
+
       it 'checkOnePair' do
         post '/api/v1/newpokers', params: {
           cards: [
@@ -153,7 +153,7 @@ RSpec.describe 'Api::V1::Newpokers', type: :request do
         expect(json[:errors].length == 1)
       end
     end
-    context "complex testcase" do
+    context 'complex_testcase' do
       it 'TestCase1' do
         post '/api/v1/newpokers', params: {
           cards: [
@@ -168,7 +168,7 @@ RSpec.describe 'Api::V1::Newpokers', type: :request do
         expect(json[:successes][1][:Debug][:highest]).to eq(14)
         expect(json[:errors].length == 1)
       end
-  
+
       it 'TestCase2' do
         post '/api/v1/newpokers', params: {
           cards: [
@@ -202,8 +202,8 @@ RSpec.describe 'Api::V1::Newpokers', type: :request do
         expect(json[:errors].length == 1)
       end
     end
-    context "test response status" do
-      it "valid card" do
+    context 'test response status' do
+      it 'valid card' do
         post '/api/v1/newpokers', params: {
           cards: [
             'C6 H6 S6 D6 C9'
@@ -211,7 +211,7 @@ RSpec.describe 'Api::V1::Newpokers', type: :request do
         }
         expect(response.status == 200)
       end
-      it "invalid card" do
+      it 'invalid_card' do
         post '/api/v1/newpokers', params: {
           cards: [
             'C6 H6 S6 A6 C9'
@@ -219,7 +219,7 @@ RSpec.describe 'Api::V1::Newpokers', type: :request do
         }
         expect(response.status == 400)
       end
-      it "invalid API end point" do
+      it 'invalid_API_end_point' do
         post '/api/v1/hello', params: {
           cards: [
             'C6 H6 S6 A6 C9'
@@ -228,8 +228,8 @@ RSpec.describe 'Api::V1::Newpokers', type: :request do
         expect(response.status == 404)
       end
     end
-    context "exception test cases" do
-      it "invalid input" do
+    context 'exception_test_cases' do
+      it 'invalid input' do
         post '/api/v1/newpokers', params: {
           cards: [
             'C6 H6 S6 A6 F9'
@@ -238,29 +238,29 @@ RSpec.describe 'Api::V1::Newpokers', type: :request do
         json = JSON.parse(response.body).deep_symbolize_keys
         expect(json[:errors][0][:message]).to eq('The card number 4 is invalid: A6.The card number 5 is invalid: F9.')
       end
-      it "more or less than 5 cards" do
+      it 'more_or_less_than_5_cards' do
         post '/api/v1/newpokers', params: {
           cards: [
             'C6 H6 S6 C9',
-            'C7 H7 D7 C8 D10 C12',
+            'C7 H7 D7 C8 D10 C12'
           ]
         }
         json = JSON.parse(response.body).deep_symbolize_keys
         expect(json[:errors][0][:message]).to eq('Please enter 5 cards')
         expect(json[:errors][1][:message]).to eq('Please enter 5 cards')
       end
-      it "duplicated cards " do
+      it 'duplicated_cards ' do
         post '/api/v1/newpokers', params: {
           cards: [
             'C6 H6 D6 C9 C9',
-            'C7 H7 D7 H7 H8',
+            'C7 H7 D7 H7 H8'
           ]
         }
         json = JSON.parse(response.body).deep_symbolize_keys
         expect(json[:errors][0][:message]).to eq('The card number 5 is duplicated: C9')
         expect(json[:errors][1][:message]).to eq('The card number 4 is duplicated: H7')
       end
-      it "invallid format" do
+      it 'invallid_format' do
         post '/api/v1/newpokers', params: {
           cards: 10
         }
