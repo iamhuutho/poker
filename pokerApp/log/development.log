@@ -2055,3 +2055,69 @@ Processing by Api::V1::NewpokersController#create as */*
 Completed 400 Bad Request in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 192)
 
 
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-06 09:20:02 +0700
+  [1m[36mActiveRecord::SchemaMigration Load (3.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["6C 6H 6D 6A 9C"], "newpoker"=>{"cards"=>["6C 6H 6D 6A 9C"]}}
+Completed 400 Bad Request in 0ms (Views: 0.1ms | ActiveRecord: 23.5ms | Allocations: 401)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-06 09:20:49 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["C6 H6 D6 D7 C9"], "newpoker"=>{"cards"=>["C6 H6 D6 D7 C9"]}}
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 1.9ms | Allocations: 4607)
+
+
+  
+NoMethodError (undefined method `check_strfaight_flush' for #<Api::V1::NewpokersController:0x0000000000f938>
+
+        return check_straight_flush(sorted_cards) if (check_strfaight_flush(sorted_cards)[:point]).positive?
+                                                      ^^^^^^^^^^^^^^^^^^^^^
+Did you mean?  check_straight_flush):
+  
+app/controllers/api/v1/newpokers_controller.rb:141:in `check_hand'
+app/controllers/api/v1/newpokers_controller.rb:48:in `block in create'
+app/controllers/api/v1/newpokers_controller.rb:36:in `each'
+app/controllers/api/v1/newpokers_controller.rb:36:in `create'
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-06 09:21:10 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["C6 H6 D6 D7 C9"], "newpoker"=>{"cards"=>["C6 H6 D6 D7 C9"]}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 1.8ms | Allocations: 312)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-06 09:21:27 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["C1 H6 D6 D7 C9"], "newpoker"=>{"cards"=>["C1 H6 D6 D7 C9"]}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 255)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-06 09:21:38 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["C1 H1 D6 D7 C9"], "newpoker"=>{"cards"=>["C1 H1 D6 D7 C9"]}}
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 247)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-06 09:21:46 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["C1 H14 D6 D7 C9"], "newpoker"=>{"cards"=>["C1 H14 D6 D7 C9"]}}
+Completed 400 Bad Request in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 126)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-06 09:21:52 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["C1 A3 D6 D7 C9"], "newpoker"=>{"cards"=>["C1 A3 D6 D7 C9"]}}
+Completed 400 Bad Request in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 125)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-06 09:25:41 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["H10 H11 H12 H13 H1", "C11 C12 C13 C1 C10"], "newpoker"=>{"cards"=>["H10 H11 H12 H13 H1", "C11 C12 C13 C1 C10"]}}
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 302)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-06 09:25:50 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["H10 H11 H12 H13 H9", "C11 C12 C13 C1 C10"], "newpoker"=>{"cards"=>["H10 H11 H12 H13 H9", "C11 C12 C13 C1 C10"]}}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 295)
+
+

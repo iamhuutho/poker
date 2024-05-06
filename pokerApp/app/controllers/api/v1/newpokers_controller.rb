@@ -62,7 +62,7 @@ module Api
                                'Lose'
                              end
           outputMapping = {
-            10 => 'Royal Flush',
+            10 => 'Straight Flush',
             9 => 'Straight Flush',
             8 => 'Four Kind',
             7 => 'Full House',
@@ -110,13 +110,13 @@ module Api
         return false if (card.length < 2) || (card.length > 3)
 
         if card.length == 3
-          num = card[0].to_i * 10 + card[1].to_i
+          num = card[1].to_i * 10 + card[2].to_i
           return false if (num > 13) || (num < 1)
-          return false unless %w[H D C S].include?(card[2])
+          return false unless %w[H D C S].include?(card[0])
         end
         if card.length == 2
-          return false unless (card[0] > '0') && (card[0] <= '9')
-          return false unless %w[H D C S].include?(card[1])
+          return false unless (card[1] > '0') && (card[1] <= '9')
+          return false unless %w[H D C S].include?(card[0])
         end
         true
       end
@@ -124,12 +124,12 @@ module Api
       def check_hand(cards)
         cards = cards.map do |card|
           if card.length == 3
-            value = card[0] + card[1]
-            suit = card[2]
+            value = card[1] + card[2]
+            suit = card[0]
 
           else
-            value = card[0]
-            suit = card[1]
+            value = card[1]
+            suit = card[0]
 
           end
           return -1 if (value.to_i > 13) || (value.to_i < 1)
@@ -138,7 +138,6 @@ module Api
           { value:, suit: }
         end
         sorted_cards = cards.sort_by { |card| card[:value].to_i }
-        return check_royal_flush(sorted_cards) if (check_royal_flush(sorted_cards)[:point]).positive?
         return check_straight_flush(sorted_cards) if (check_straight_flush(sorted_cards)[:point]).positive?
         return check_four_kind(sorted_cards) if (check_four_kind(sorted_cards)[:point]).positive?
         return check_full_house(sorted_cards) if (check_full_house(sorted_cards)[:point]).positive?
@@ -149,10 +148,6 @@ module Api
         return check_one_pair(sorted_cards) if (check_one_pair(sorted_cards)[:point]).positive?
 
         check_high_card(sorted_cards)
-      end
-
-      def check_royal_flush(cards)
-        check_straight_flush(cards)
       end
 
       def check_straight_flush(cards)
