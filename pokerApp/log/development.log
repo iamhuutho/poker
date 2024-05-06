@@ -3123,3 +3123,45 @@ Processing by Api::V1::NewpokersController#create as */*
 Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 235)
 
 
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-06 11:59:21 +0700
+  [1m[36mActiveRecord::SchemaMigration Load (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["H1 H13 H6 H5 H10"], "newpoker"=>{"cards"=>["H1 H13 H6 H5 H10"]}}
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 11.2ms | Allocations: 537)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-06 11:59:26 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["H9 H13 H6 H5 H10"], "newpoker"=>{"cards"=>["H9 H13 H6 H5 H10"]}}
+Completed 500 Internal Server Error in 27ms (ActiveRecord: 0.0ms | Allocations: 4696)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass
+
+        return { point: 6, highest: card[4][:value], suit: suit_values[cards[0][:suit]] } 
+                                           ^^^^^^^^):
+  
+app/controllers/api/v1/newpokers_controller.rb:254:in `check_flush'
+app/controllers/api/v1/newpokers_controller.rb:156:in `check_hand'
+app/controllers/api/v1/newpokers_controller.rb:56:in `block in create'
+app/controllers/api/v1/newpokers_controller.rb:44:in `each'
+app/controllers/api/v1/newpokers_controller.rb:44:in `create'
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-06 11:59:38 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["H9 H13 H6 H5 H10"], "newpoker"=>{"cards"=>["H9 H13 H6 H5 H10"]}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 2.1ms | Allocations: 352)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-06 11:59:44 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["H9 H11 H6 H5 H10"], "newpoker"=>{"cards"=>["H9 H11 H6 H5 H10"]}}
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 230)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-06 11:59:47 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["H9 H11 H6 C5 H10"], "newpoker"=>{"cards"=>["H9 H11 H6 C5 H10"]}}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 231)
+
+

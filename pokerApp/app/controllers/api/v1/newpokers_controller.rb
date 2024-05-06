@@ -244,13 +244,14 @@ module Api
           'C' => 2,
           'S' => 1
         }
-        if (cards[0][:suit] == cards[1][:suit]) && (cards[1][:suit] == cards[2][:suit]) && (cards[2][:suit] == cards[3][:suit]) && (cards[3][:suit] == cards[4][:suit])
-          return { point: 6, highest: 14, suit: suit_values[cards[0][:suit]] } if cards[0][:value].to_i == 1
-
-          return { point: 6, highest: cards[4][:value].to_i, suit: suit_values[cards[4][:suit]] }
-
+        check = cards[0][:suit]
+        for card in cards
+          if card[:suit]!= check
+            return { point: 0, highest: 0, suit: 0 }
+          end    
         end
-        { point: 0, highest: 0, suit: 0 }
+        return { point: 6, highest: 14, suit: suit_values[cards[0][:suit]] } if cards[0][:value].to_i == 1
+        return { point: 6, highest: cards[4][:value], suit: suit_values[cards[0][:suit]] } 
       end
 
       def check_straight(cards)
