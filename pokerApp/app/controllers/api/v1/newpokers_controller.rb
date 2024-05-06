@@ -52,7 +52,7 @@ module Api
           success_list.push(x: check_hand, y: each_hand)
         end
         if success_list.empty?
-          render json: { successes: [], errors: error_list }, status: 400
+          render json: { results: [], errors: error_list }, status: 400
           return
         end
         # Sort the success list by point, highest card, suit to find the strongest hand.
@@ -64,10 +64,10 @@ module Api
         final_sucess_list = []
         new_success_list.each_with_index do |item, index|
           newitem = {}
-          newitem[:Result] = if index.zero?
-                               'Win'
+          newitem[:Best] = if index.zero?
+                               'True'
                              else
-                               'Lose'
+                               'False'
                              end
           outputMapping = {
             10 => 'Straight Flush',
@@ -83,10 +83,10 @@ module Api
           }
           newitem[:Hand] = outputMapping[item[:x][:point]]
           newitem[:Card] = item[:y].join(' ')
-          newitem[:Debug] = item[:x]
+          # newitem[:Debug] = item[:x]
           final_sucess_list.push(newitem)
         end
-        render json: { successes: final_sucess_list, errors: error_list }, status: 200
+        render json: { results: final_sucess_list, errors: error_list }, status: 200
       end
 
       private

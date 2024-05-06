@@ -3508,3 +3508,90 @@ Processing by Api::V1::NewpokersController#create as */*
 Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 236)
 
 
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-06 17:54:52 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"message"=>"C1 C4 C7 D8 H7", "newpoker"=>{}}
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 9.8ms | Allocations: 348)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-06 17:55:18 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"message"=>"C1 C4 C7 D8 A7", "newpoker"=>{}}
+Completed 400 Bad Request in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 132)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-06 17:55:24 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"message"=>"12", "newpoker"=>{}}
+Completed 400 Bad Request in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 101)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-06 17:55:34 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"message"=>"C1 C4 C7 W8 A7", "newpoker"=>{}}
+Completed 400 Bad Request in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 133)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-06 17:55:51 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"message"=>"C1 C2 C4 C8 S7", "newpoker"=>{}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 224)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-06 17:55:55 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>"C1 C2 C4 C8 S7", "newpoker"=>{"cards"=>"C1 C2 C4 C8 S7"}}
+Completed 400 Bad Request in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 82)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-06 17:56:12 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["C1 C2 C4 C8 S7"], "newpoker"=>{"cards"=>["C1 C2 C4 C8 S7"]}}
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 226)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-06 17:56:50 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["C1 C2 C4 W8 A7"], "newpoker"=>{"cards"=>["C1 C2 C4 W8 A7"]}}
+Completed 400 Bad Request in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 138)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-06 17:57:08 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>12, "newpoker"=>{"cards"=>12}}
+Completed 400 Bad Request in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 82)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-06 17:57:13 +0700
+Error occurred while parsing request parameters.
+Contents:
+
+{
+    "cards":ftyjtv
+}
+Processing by Api::V1::NewpokersController#create as */*
+Completed 400 Bad Request in 0ms (ActiveRecord: 0.0ms | Allocations: 735)
+
+
+  
+ActionDispatch::Http::Parameters::ParseError (Error occurred while parsing request parameters):
+  
+app/controllers/api/v1/newpokers_controller.rb:17:in `create'
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-06 17:57:33 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["C1 C2 C4 W8 A7 H6"], "newpoker"=>{"cards"=>["C1 C2 C4 W8 A7 H6"]}}
+Completed 400 Bad Request in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 164)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-06 17:57:49 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["C1 C2 C4 S8 D7"], "newpoker"=>{"cards"=>["C1 C2 C4 S8 D7"]}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 229)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-06 17:59:19 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["C1 C2 C4 S8 D7"], "newpoker"=>{"cards"=>["C1 C2 C4 S8 D7"]}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 7.7ms | Allocations: 342)
+
+
