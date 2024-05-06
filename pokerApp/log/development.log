@@ -3667,3 +3667,39 @@ Processing by Api::V1::NewpokersController#create as HTML
 Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 216)
 
 
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-06 18:02:45 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["C1 C4 C7 D8 D9"], "newpoker"=>{"cards"=>["C1 C4 C7 D8 D9"]}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 214)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-06 18:02:51 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"message"=>"C1 C4 C7 D8 S8", "newpoker"=>{}}
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 216)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-06 18:02:55 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"message"=>"C1 C4 C7 D8 S0", "newpoker"=>{}}
+Completed 400 Bad Request in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 128)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-06 18:02:59 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"message"=>"C1 C4 C7 D8 S12", "newpoker"=>{}}
+Completed 200 OK in 1ms (Views: 0.6ms | ActiveRecord: 0.0ms | Allocations: 211)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-06 18:03:04 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"message"=>"C1 C4 C7 D8 D8", "newpoker"=>{}}
+Completed 400 Bad Request in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 131)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-06 18:03:12 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"message"=>"C1 C4 C7 A8 F8", "newpoker"=>{}}
+Completed 400 Bad Request in 0ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 134)
+
+
