@@ -87,7 +87,7 @@ module Api
           }
           newitem[:Hand] = outputMapping[item[:x][:point]]
           newitem[:Card] = item[:y].join(' ')
-          # newitem[:Debug] = item[:x]
+          newitem[:Debug] = item[:x]
           final_sucess_list.push(newitem)
         end
         render json: { successes: final_sucess_list, errors: error_list }, status: 200
@@ -260,20 +260,39 @@ module Api
           'C' => 2,
           'S' => 1
         }
-        if cards[0][:value].to_i == 1
-          if (cards[4][:value].to_i == 13) && (cards[1][:value].to_i + 1 == cards[2][:value].to_i) && (cards[2][:value].to_i + 1 == cards[3][:value].to_i) && (cards[3][:value].to_i + 1 == cards[4][:value].to_i)
+        if cards[0][:value].to_i == 1 and cards[4][:value].to_i == 13
+          check = cards[1][:value].to_i - 1
+          flag = true
+          cards.each_with_index do |card, index|
+            if index == 0 or index == cards.size - 1
+              next
+            end
+            if(card[:value].to_i == check + 1)
+              check += 1
+            else
+              flag = false
+              break
+            end
+          end
+          if flag
             return { point: 5, highest: 14, suit: suit_values[cards[0][:suit]] }
           end
-          if (cards[0][:value].to_i + 1 == cards[1][:value].to_i) && (cards[1][:value].to_i + 1 == cards[2][:value].to_i) && (cards[2][:value].to_i + 1 == cards[3][:value].to_i) && (cards[3][:value].to_i + 1 == cards[4][:value].to_i)
-            return { point: 5, highest: cards[4][:value].to_i, suit: suit_values[cards[0][:suit]] }
-          end
-
-          { point: 0, highest: 0, suit: 0 }
-        elsif (cards[0][:value].to_i + 1 == cards[1][:value].to_i) && (cards[1][:value].to_i + 1 == cards[2][:value].to_i) && (cards[2][:value].to_i + 1 == cards[3][:value].to_i) && (cards[3][:value].to_i + 1 == cards[4][:value].to_i)
-          { point: 5, highest: cards[4][:value].to_i, suit: suit_values[cards[4][:suit]] }
         else
-          { point: 0, highest: 0, suit: 0 }
+          check = cards[0][:value].to_i - 1
+          flag = true
+          for card in cards
+            if(card[:value].to_i == check + 1)
+              check += 1
+            else
+              flag = false
+              break
+            end
+          end
+          if flag
+            return { point: 5, highest: cards[4][:value].to_i, suit: suit_values[cards[0][:suit]] }
+          end  
         end
+        return { point: 0, highest: 0, suit: 0 }
       end
 
       def check_three_kind(cards)

@@ -2748,3 +2748,378 @@ Processing by Api::V1::NewpokersController#create as */*
 Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 219)
 
 
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-06 10:53:58 +0700
+  [1m[36mActiveRecord::SchemaMigration Load (2.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["H4 H13 H12 H11 S10"], "newpoker"=>{"cards"=>["H4 H13 H12 H11 S10"]}}
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 8.6ms | Allocations: 5083)
+
+
+  
+NoMethodError (undefined method `+' for nil:NilClass
+
+            if(card[:value].to_i == check + 1)
+                                          ^):
+  
+app/controllers/api/v1/newpokers_controller.rb:273:in `block in check_straight'
+app/controllers/api/v1/newpokers_controller.rb:272:in `each'
+app/controllers/api/v1/newpokers_controller.rb:272:in `check_straight'
+app/controllers/api/v1/newpokers_controller.rb:171:in `check_straight_flush'
+app/controllers/api/v1/newpokers_controller.rb:153:in `check_hand'
+app/controllers/api/v1/newpokers_controller.rb:56:in `block in create'
+app/controllers/api/v1/newpokers_controller.rb:44:in `each'
+app/controllers/api/v1/newpokers_controller.rb:44:in `create'
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-06 10:54:31 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["H4 H13 H12 H11 S10"], "newpoker"=>{"cards"=>["H4 H13 H12 H11 S10"]}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 2.9ms | Allocations: 437)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-06 10:54:32 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["H4 H13 H12 H11 S10"], "newpoker"=>{"cards"=>["H4 H13 H12 H11 S10"]}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 223)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-06 10:54:33 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["H4 H13 H12 H11 S10"], "newpoker"=>{"cards"=>["H4 H13 H12 H11 S10"]}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 223)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-06 10:54:47 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["H1 H13 H12 H11 S10"], "newpoker"=>{"cards"=>["H1 H13 H12 H11 S10"]}}
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms | Allocations: 6272)
+
+
+  
+NoMethodError (undefined method `reverse' for #<Api::V1::NewpokersController:0x0000000000fcf8>
+
+          for card in reverse(cards)
+                      ^^^^^^^):
+  
+app/controllers/api/v1/newpokers_controller.rb:265:in `check_straight'
+app/controllers/api/v1/newpokers_controller.rb:171:in `check_straight_flush'
+app/controllers/api/v1/newpokers_controller.rb:153:in `check_hand'
+app/controllers/api/v1/newpokers_controller.rb:56:in `block in create'
+app/controllers/api/v1/newpokers_controller.rb:44:in `each'
+app/controllers/api/v1/newpokers_controller.rb:44:in `create'
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-06 10:55:03 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["H1 H13 H12 H11 S10"], "newpoker"=>{"cards"=>["H1 H13 H12 H11 S10"]}}
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 1.7ms | Allocations: 6251)
+
+
+  
+NoMethodError (undefined method `reverse' for #<Api::V1::NewpokersController:0x00000000013dd0>
+
+          for card in reverse(cards)
+                      ^^^^^^^):
+  
+app/controllers/api/v1/newpokers_controller.rb:265:in `check_straight'
+app/controllers/api/v1/newpokers_controller.rb:171:in `check_straight_flush'
+app/controllers/api/v1/newpokers_controller.rb:153:in `check_hand'
+app/controllers/api/v1/newpokers_controller.rb:56:in `block in create'
+app/controllers/api/v1/newpokers_controller.rb:44:in `each'
+app/controllers/api/v1/newpokers_controller.rb:44:in `create'
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-06 10:55:35 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["H4 H13 H12 H11 S10"], "newpoker"=>{"cards"=>["H4 H13 H12 H11 S10"]}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 315)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-06 10:56:16 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["H4 H13 H12 H11 S10"], "newpoker"=>{"cards"=>["H4 H13 H12 H11 S10"]}}
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 2.8ms | Allocations: 356)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-06 10:56:17 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["H4 H13 H12 H11 S10"], "newpoker"=>{"cards"=>["H4 H13 H12 H11 S10"]}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 233)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-06 10:56:18 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["H4 H13 H12 H11 S10"], "newpoker"=>{"cards"=>["H4 H13 H12 H11 S10"]}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 233)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-06 10:56:19 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["H4 H13 H12 H11 S10"], "newpoker"=>{"cards"=>["H4 H13 H12 H11 S10"]}}
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 233)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-06 10:56:19 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["H4 H13 H12 H11 S10"], "newpoker"=>{"cards"=>["H4 H13 H12 H11 S10"]}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 233)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-06 10:56:20 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["H4 H13 H12 H11 S10"], "newpoker"=>{"cards"=>["H4 H13 H12 H11 S10"]}}
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 233)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-06 10:56:20 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["H4 H13 H12 H11 S10"], "newpoker"=>{"cards"=>["H4 H13 H12 H11 S10"]}}
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 233)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-06 10:56:21 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["H4 H13 H12 H11 S10"], "newpoker"=>{"cards"=>["H4 H13 H12 H11 S10"]}}
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 233)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-06 10:56:22 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["H4 H13 H12 H11 S10"], "newpoker"=>{"cards"=>["H4 H13 H12 H11 S10"]}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 233)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-06 10:56:43 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["H4 H13 H12 H11 S10"], "newpoker"=>{"cards"=>["H4 H13 H12 H11 S10"]}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 2.0ms | Allocations: 412)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-06 10:57:16 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["H4 H13 H12 H11 S10"], "newpoker"=>{"cards"=>["H4 H13 H12 H11 S10"]}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 1.5ms | Allocations: 411)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-06 10:57:48 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["H4 H13 H12 H11 S10"], "newpoker"=>{"cards"=>["H4 H13 H12 H11 S10"]}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 1.6ms | Allocations: 420)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-06 10:58:14 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["H4 H13 H12 H11 S10"], "newpoker"=>{"cards"=>["H4 H13 H12 H11 S10"]}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 2.3ms | Allocations: 416)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-06 10:58:28 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["H4 H13 H12 H11 S10"], "newpoker"=>{"cards"=>["H4 H13 H12 H11 S10"]}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 291)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-06 10:58:34 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["H3 H13 H12 H11 S10"], "newpoker"=>{"cards"=>["H3 H13 H12 H11 S10"]}}
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 292)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-06 10:59:35 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["H3 H13 H12 H11 S10"], "newpoker"=>{"cards"=>["H3 H13 H12 H11 S10"]}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 1.8ms | Allocations: 415)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-06 10:59:36 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["H3 H13 H12 H11 S10"], "newpoker"=>{"cards"=>["H3 H13 H12 H11 S10"]}}
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 291)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-06 10:59:53 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["H3 H13 H12 H11 S10"], "newpoker"=>{"cards"=>["H3 H13 H12 H11 S10"]}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 291)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-06 10:59:53 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["H3 H13 H12 H11 S10"], "newpoker"=>{"cards"=>["H3 H13 H12 H11 S10"]}}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 291)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-06 10:59:54 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["H3 H13 H12 H11 S10"], "newpoker"=>{"cards"=>["H3 H13 H12 H11 S10"]}}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 291)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-06 10:59:55 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["H3 H13 H12 H11 S10"], "newpoker"=>{"cards"=>["H3 H13 H12 H11 S10"]}}
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 291)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-06 10:59:56 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["H3 H13 H12 H11 S10"], "newpoker"=>{"cards"=>["H3 H13 H12 H11 S10"]}}
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 291)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-06 10:59:57 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["H3 H13 H12 H11 S10"], "newpoker"=>{"cards"=>["H3 H13 H12 H11 S10"]}}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 291)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-06 11:00:47 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["H9 H13 H12 H11 S10"], "newpoker"=>{"cards"=>["H9 H13 H12 H11 S10"]}}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 292)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-06 11:02:38 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["H9 H13 H12 H11 S10"], "newpoker"=>{"cards"=>["H9 H13 H12 H11 S10"]}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 291)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-06 11:02:39 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["H9 H13 H12 H11 S10"], "newpoker"=>{"cards"=>["H9 H13 H12 H11 S10"]}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 291)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-06 11:03:35 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["H9 H13 H12 H11 S10"], "newpoker"=>{"cards"=>["H9 H13 H12 H11 S10"]}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 1.5ms | Allocations: 420)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-06 11:42:18 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["H9 H13 H12 H11 S10"], "newpoker"=>{"cards"=>["H9 H13 H12 H11 S10"]}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 6.1ms | Allocations: 423)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-06 11:42:21 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["H9 H13 H12 H11 S10"], "newpoker"=>{"cards"=>["H9 H13 H12 H11 S10"]}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 295)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-06 11:42:47 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["H9 H13 H12 H11 S10"], "newpoker"=>{"cards"=>["H9 H13 H12 H11 S10"]}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 5.4ms | Allocations: 452)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-06 11:42:48 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["H9 H13 H12 H11 S10"], "newpoker"=>{"cards"=>["H9 H13 H12 H11 S10"]}}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 325)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-06 11:42:55 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["H4 H13 H12 H11 S10"], "newpoker"=>{"cards"=>["H4 H13 H12 H11 S10"]}}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 301)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-06 11:43:10 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["H4 H13 H12 H11 S10"], "newpoker"=>{"cards"=>["H4 H13 H12 H11 S10"]}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 1.9ms | Allocations: 354)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-06 11:43:15 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["H1 H13 H12 H11 S10"], "newpoker"=>{"cards"=>["H1 H13 H12 H11 S10"]}}
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms | Allocations: 6291)
+
+
+  
+NoMethodError (undefined method `reverse' for #<Api::V1::NewpokersController:0x0000000003bb78>
+
+          for card in reverse(cards)
+                      ^^^^^^^):
+  
+app/controllers/api/v1/newpokers_controller.rb:265:in `check_straight'
+app/controllers/api/v1/newpokers_controller.rb:171:in `check_straight_flush'
+app/controllers/api/v1/newpokers_controller.rb:153:in `check_hand'
+app/controllers/api/v1/newpokers_controller.rb:56:in `block in create'
+app/controllers/api/v1/newpokers_controller.rb:44:in `each'
+app/controllers/api/v1/newpokers_controller.rb:44:in `create'
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-06 11:45:02 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["H1 H13 H12 H11 S10"], "newpoker"=>{"cards"=>["H1 H13 H12 H11 S10"]}}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 2.7ms | Allocations: 4807)
+
+
+  
+NoMethodError (undefined method `reverse' for nil:NilClass
+
+          for card in card.reverse()
+                          ^^^^^^^^):
+  
+app/controllers/api/v1/newpokers_controller.rb:266:in `check_straight'
+app/controllers/api/v1/newpokers_controller.rb:171:in `check_straight_flush'
+app/controllers/api/v1/newpokers_controller.rb:153:in `check_hand'
+app/controllers/api/v1/newpokers_controller.rb:56:in `block in create'
+app/controllers/api/v1/newpokers_controller.rb:44:in `each'
+app/controllers/api/v1/newpokers_controller.rb:44:in `create'
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-06 11:45:19 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["H1 H13 H12 H11 S10"], "newpoker"=>{"cards"=>["H1 H13 H12 H11 S10"]}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 1.5ms | Allocations: 356)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-06 11:45:41 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["H1 H13 H12 H11 S10"], "newpoker"=>{"cards"=>["H1 H13 H12 H11 S10"]}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 2.5ms | Allocations: 357)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-06 11:45:43 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["H1 H13 H12 H11 S10"], "newpoker"=>{"cards"=>["H1 H13 H12 H11 S10"]}}
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 233)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-06 11:46:02 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["H1 H13 H12 H11 S10"], "newpoker"=>{"cards"=>["H1 H13 H12 H11 S10"]}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 1.5ms | Allocations: 365)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-06 11:46:03 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["H1 H13 H12 H11 S10"], "newpoker"=>{"cards"=>["H1 H13 H12 H11 S10"]}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 241)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-06 11:53:18 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["H1 H13 H12 H11 S10"], "newpoker"=>{"cards"=>["H1 H13 H12 H11 S10"]}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 5.0ms | Allocations: 359)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-06 11:53:20 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["H1 H13 H12 H11 S10"], "newpoker"=>{"cards"=>["H1 H13 H12 H11 S10"]}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 235)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-06 11:54:38 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["H1 H13 H12 H11 S10"], "newpoker"=>{"cards"=>["H1 H13 H12 H11 S10"]}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 5.1ms | Allocations: 359)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-06 11:54:42 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["H2 H13 H12 H11 S10"], "newpoker"=>{"cards"=>["H2 H13 H12 H11 S10"]}}
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 231)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-06 11:54:47 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["H1 H13 H12 H11 S10"], "newpoker"=>{"cards"=>["H1 H13 H12 H11 S10"]}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 235)
+
+
