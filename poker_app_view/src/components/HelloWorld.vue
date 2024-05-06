@@ -35,10 +35,10 @@ export default {
       const url = 'http://localhost:3000/api/v1/newpokers';
       try {
         const response = await axios.post(url, { message: this.formData });
-        const flag = response.data.successes.length > 0
+        const flag = response.data.results.length > 0
         console.log("FLAG", flag)
         if (flag){
-          const temp = response.data.successes[0];
+          const temp = response.data.results[0];
           this.response.card = temp.Card
           this.response.hand = temp.Hand
           this.submitted = true
