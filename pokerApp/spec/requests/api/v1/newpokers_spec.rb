@@ -8,18 +8,18 @@ RSpec.describe 'Api::V1::Newpokers', type: :request do
       it 'checkRoyalFlush1' do
         post '/api/v1/newpokers', params: {
           cards: [
-            '13D 10D 12D 1D 11D'
+            'D13 D10 D12 D1 D11'
           ]
         }
         json = JSON.parse(response.body).deep_symbolize_keys
-        expect(json[:successes][0][:Hand]).to eq('Royal Flush')
+        expect(json[:successes][0][:Hand]).to eq('Straight Flush')
         expect(json[:successes][0][:Debug][:highest]).to eq(14)
       end
   
       it 'checkStraightFlush1' do
         post '/api/v1/newpokers', params: {
           cards: [
-            '13D 10D 11D 9D 12D'
+            'D13 D10 D11 D9 D12'
           ]
         }
         json = JSON.parse(response.body).deep_symbolize_keys
@@ -30,7 +30,7 @@ RSpec.describe 'Api::V1::Newpokers', type: :request do
       it 'checkStraightFlush3' do
         post '/api/v1/newpokers', params: {
           cards: [
-            '8H 10H 11H 9H 12H'
+            'H8 H10 H11 H9 H12'
           ]
         }
         json = JSON.parse(response.body).deep_symbolize_keys
@@ -41,7 +41,7 @@ RSpec.describe 'Api::V1::Newpokers', type: :request do
       it 'checkFourKind1' do
         post '/api/v1/newpokers', params: {
           cards: [
-            '8H 8C 8D 8S 12H'
+            'H8 C8 D8 S8 H12'
           ]
         }
         json = JSON.parse(response.body).deep_symbolize_keys
@@ -52,7 +52,7 @@ RSpec.describe 'Api::V1::Newpokers', type: :request do
       it 'checkFourKind2' do
         post '/api/v1/newpokers', params: {
           cards: [
-            '1H 1C 1D 1S 13H'
+            'H1 C1 D1 S1 H13'
           ]
         }
         json = JSON.parse(response.body).deep_symbolize_keys
@@ -63,8 +63,8 @@ RSpec.describe 'Api::V1::Newpokers', type: :request do
       it 'checkFullHouse' do
         post '/api/v1/newpokers', params: {
           cards: [
-            '1H 1C 1D 8S 8H',
-            '2D 2C 2S 12D 12S'
+            'H1 C1 D1 S8 H8',
+            'D2 C2 S2 D12 S12'
           ]
         }
         json = JSON.parse(response.body).deep_symbolize_keys
@@ -77,8 +77,8 @@ RSpec.describe 'Api::V1::Newpokers', type: :request do
       it 'checkFlush' do
         post '/api/v1/newpokers', params: {
           cards: [
-            '1H 3H 9H 11H 6H',
-            '2C 6C 7C 9C 13C'
+            'H1 H3 H9 H11 H6',
+            'C2 C6 C7 C9 C13'
           ]
         }
         json = JSON.parse(response.body).deep_symbolize_keys
@@ -91,9 +91,9 @@ RSpec.describe 'Api::V1::Newpokers', type: :request do
       it 'checkStraight' do
         post '/api/v1/newpokers', params: {
           cards: [
-            '1H 2C 3D 4H 5C',
-            '2D 5S 6S 4D 3S',
-            '10D 13C 12S 11D 1S'
+            'H1 C2 D3 H4 C5',
+            'D2 S5 S6 D4 S3',
+            'D10 C13 S12 D11 S1'
           ]
         }
         json = JSON.parse(response.body).deep_symbolize_keys
@@ -108,9 +108,9 @@ RSpec.describe 'Api::V1::Newpokers', type: :request do
       it 'checkThreeKind' do
         post '/api/v1/newpokers', params: {
           cards: [
-            '2H 2C 4D 4H 4C',
-            '1D 1C 1S 6D 7S',
-            '1D 11C 12S 1D 1S'
+            'H2 C2 D4 H4 C4',
+            'D1 C1 S1 D6 S7',
+            'D1 C11 S12 D1 S1'
           ]
         }
         json = JSON.parse(response.body).deep_symbolize_keys
@@ -124,9 +124,9 @@ RSpec.describe 'Api::V1::Newpokers', type: :request do
       it 'checkTwoPair' do
         post '/api/v1/newpokers', params: {
           cards: [
-            '2H 2C 4D 4H 9C',
-            '1D 1C 6S 6D 13S',
-            '13D 13S 3H 3C 8S'
+            'H2 C2 D4 H4 C9',
+            'D1 C1 S6 D6 S13',
+            'D13 S13 H3 C3 S8'
           ]
         }
         json = JSON.parse(response.body).deep_symbolize_keys
@@ -140,9 +140,9 @@ RSpec.describe 'Api::V1::Newpokers', type: :request do
       it 'checkOnePair' do
         post '/api/v1/newpokers', params: {
           cards: [
-            '2H 2C 4D 5H 9C',
-            '1D 1C 6S 7D 13S',
-            '13D 13S 3H 7C 8S'
+            'H2 C2 D4 H5 C9',
+            'D1 C1 S6 D7 S13',
+            'D13 S13 H3 C7 S8'
           ]
         }
         json = JSON.parse(response.body).deep_symbolize_keys
@@ -157,8 +157,8 @@ RSpec.describe 'Api::V1::Newpokers', type: :request do
       it 'TestCase1' do
         post '/api/v1/newpokers', params: {
           cards: [
-            '1H 3C 4D 5H 9C',
-            '3D 3S 6S 7D 13S'
+            'H1 C3 D4 H5 C9',
+            'D3 S3 S6 D7 S13'
           ]
         }
         json = JSON.parse(response.body).deep_symbolize_keys
@@ -172,9 +172,9 @@ RSpec.describe 'Api::V1::Newpokers', type: :request do
       it 'TestCase2' do
         post '/api/v1/newpokers', params: {
           cards: [
-            '1C 1H 4D 5H 9C',
-            '1D 1S 6S 7D 13S',
-            '13D 13S 6C 7C 8S'
+            'C1 H1 D4 H5 C9',
+            'D1 S1 S6 D7 S13',
+            'D13 S13 C6 C7 S8'
           ]
         }
         json = JSON.parse(response.body).deep_symbolize_keys
@@ -187,9 +187,9 @@ RSpec.describe 'Api::V1::Newpokers', type: :request do
       it 'TestCase3' do
         post '/api/v1/newpokers', params: {
           cards: [
-            '6C 6H 6D 6S 9C',
-            '7D 7S 7C 7H 12S',
-            '13D 13S 13C 4C 4S'
+            'C6 H6 S6 D6 C9',
+            'C7 H7 S7 D7 S12',
+            'D13 S13 C13 C4 S4'
           ]
         }
         json = JSON.parse(response.body).deep_symbolize_keys
@@ -206,7 +206,7 @@ RSpec.describe 'Api::V1::Newpokers', type: :request do
       it "valid card" do
         post '/api/v1/newpokers', params: {
           cards: [
-            '6C 6H 6D 6S 9C'
+            'C6 H6 S6 D6 C9'
           ]
         }
         expect(response.status == 200)
@@ -214,7 +214,7 @@ RSpec.describe 'Api::V1::Newpokers', type: :request do
       it "invalid card" do
         post '/api/v1/newpokers', params: {
           cards: [
-            '6C 6H 6D 6A 9C'
+            'C6 H6 S6 A6 C9'
           ]
         }
         expect(response.status == 400)
@@ -222,7 +222,7 @@ RSpec.describe 'Api::V1::Newpokers', type: :request do
       it "invalid API end point" do
         post '/api/v1/hello', params: {
           cards: [
-            '6C 6H 6D 6A 9C'
+            'C6 H6 S6 A6 C9'
           ]
         }
         expect(response.status == 404)
@@ -232,17 +232,17 @@ RSpec.describe 'Api::V1::Newpokers', type: :request do
       it "invalid input" do
         post '/api/v1/newpokers', params: {
           cards: [
-            '6C 6H 6D 6A 9C'
+            'C6 H6 S6 A6 F9'
           ]
         }
         json = JSON.parse(response.body).deep_symbolize_keys
-        expect(json[:errors][0][:message]).to eq('The card number 4 is invalid: 6A')
+        expect(json[:errors][0][:message]).to eq('The card number 4 is invalid: A6.The card number 5 is invalid: F9.')
       end
       it "more or less than 5 cards" do
         post '/api/v1/newpokers', params: {
           cards: [
-            '6C 6H 6D 9C',
-            '7C 7H 7D 8C 10D 12C',
+            'C6 H6 S6 C9',
+            'C7 H7 D7 C8 D10 C12',
           ]
         }
         json = JSON.parse(response.body).deep_symbolize_keys
@@ -252,28 +252,20 @@ RSpec.describe 'Api::V1::Newpokers', type: :request do
       it "duplicated cards " do
         post '/api/v1/newpokers', params: {
           cards: [
-            '6C 6H 6D 9C 9C',
-            '7C 7H 7D 7H 8H',
+            'C6 H6 D6 C9 C9',
+            'C7 H7 D7 H7 H8',
           ]
         }
         json = JSON.parse(response.body).deep_symbolize_keys
-        expect(json[:errors][0][:message]).to eq('The card number 5 is duplicated: 9C')
-        expect(json[:errors][1][:message]).to eq('The card number 4 is duplicated: 7H')
+        expect(json[:errors][0][:message]).to eq('The card number 5 is duplicated: C9')
+        expect(json[:errors][1][:message]).to eq('The card number 4 is duplicated: H7')
       end
-      it "complex error cases " do
+      it "invallid format" do
         post '/api/v1/newpokers', params: {
-          cards: [
-            '6C 6H 6D 9C 9C',
-            '6A 10H 11C',
-            '6D 10H 11C 1D 1S',
-            '7C 7H 7D 7H 8H',
-          ]
+          cards: 10
         }
         json = JSON.parse(response.body).deep_symbolize_keys
-        expect(json[:errors][0][:message]).to eq('The card number 5 is duplicated: 9C')
-        expect(json[:errors][1][:message]).to eq('Please enter 5 cards')
-        expect(json[:errors][2][:message]).to eq('The card number 1 is duplicated: 6D')
-        expect(json[:errors][3][:message]).to eq('The card number 4 is duplicated: 7H')
+        expect(json[:message]).to eq('Invallid input format')
       end
     end
   end

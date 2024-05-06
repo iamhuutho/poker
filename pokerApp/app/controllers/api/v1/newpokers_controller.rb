@@ -15,6 +15,9 @@ module Api
 
       def create
         cardlist = []
+        if !params.key?(:message) and !params.key?(:cards)
+          render "Invallid input format", status: 400
+        end
         if params.key?(:message)
           message_from_web = params[:message]
           cardlist = message_from_web.split(',')
@@ -25,6 +28,11 @@ module Api
         # end
         else
           cardlist = params[:cards]
+        end
+
+        if(cardlist.kind_of?(Array) == false)
+          render json:{message: "Invallid input format"}, status: 400
+          return
         end
         items = []
         cardlist.each do |sublist|
@@ -47,6 +55,10 @@ module Api
           end
           check_hand = check_hand(each_hand)
           success_list.push(x: check_hand, y: each_hand)
+        end
+        if success_list.empty?
+          render json: { successes: [], errors: error_list }, status: 400
+          return 
         end
         new_success_list = success_list.sort do |a, b|
           point_comparison = b[:x][:point] <=> a[:x][:point]
@@ -75,33 +87,32 @@ module Api
           }
           newitem[:Hand] = outputMapping[item[:x][:point]]
           newitem[:Card] = item[:y].join(' ')
-          newitem[:Debug] = item[:x]
+          # newitem[:Debug] = item[:x]
           final_sucess_list.push(newitem)
         end
-        if success_list.empty?
-          render json: { successes: final_sucess_list, errors: error_list }, status: 400
-        else
-          render json: { successes: final_sucess_list, errors: error_list }, status: 200
-        end
+        render json: { successes: final_sucess_list, errors: error_list }, status: 200
       end
-
+      private
       def check_valid_card_list(cards, hash_table)
         if cards.length != 5
           return { status: false, message: 'Please enter only 5 cards',
                    updated_hash_table: hash_table }
         end
-
+        check_invallid_card = true
+        invallid_list = ""
         cards.each_with_index do |card, index|
           unless check_valid_single_card(card)
-            return { status: false, message: "The card number #{index + 1} is invalid: #{card}",
-                     updated_hash_table: hash_table }
+            check_invallid_card = false
+            invallid_list += "The card number #{index + 1} is invalid: #{card}."
           end
           if hash_table.key?(card)
             return { status: false, updated_hash_table: hash_table,
                      message: "The card number #{index + 1} is duplicated: #{card}" }
           end
-
           hash_table[card] = 1
+        end
+        if check_invallid_card == false
+          return { status: false, message: invallid_list, updated_hash_table: hash_table }              
         end
         { status: true, updated_hash_table: hash_table }
       end
@@ -138,16 +149,22 @@ module Api
           { value:, suit: }
         end
         sorted_cards = cards.sort_by { |card| card[:value].to_i }
-        return check_straight_flush(sorted_cards) if (check_straight_flush(sorted_cards)[:point]).positive?
-        return check_four_kind(sorted_cards) if (check_four_kind(sorted_cards)[:point]).positive?
-        return check_full_house(sorted_cards) if (check_full_house(sorted_cards)[:point]).positive?
-        return check_flush(sorted_cards) if (check_flush(sorted_cards)[:point]).positive?
-        return check_straight(sorted_cards) if (check_straight(sorted_cards)[:point]).positive?
-        return check_three_kind(sorted_cards) if (check_three_kind(sorted_cards)[:point]).positive?
-        return check_two_Pair(sorted_cards) if (check_two_Pair(sorted_cards)[:point]).positive?
-        return check_one_pair(sorted_cards) if (check_one_pair(sorted_cards)[:point]).positive?
-
-        check_high_card(sorted_cards)
+        check_functions = [
+          check_straight_flush(sorted_cards),
+          check_four_kind(sorted_cards),
+          check_full_house(sorted_cards),
+          check_flush(sorted_cards),
+          check_straight(sorted_cards),
+          check_three_kind(sorted_cards),
+          check_two_pair(sorted_cards),
+          check_one_pair(sorted_cards),
+          check_high_card(sorted_cards),
+        ] 
+        for check in check_functions
+          if check[:point].positive?
+            return check
+          end
+        end
       end
 
       def check_straight_flush(cards)
@@ -254,8 +271,6 @@ module Api
           { point: 0, highest: 0, suit: 0 }
         elsif (cards[0][:value].to_i + 1 == cards[1][:value].to_i) && (cards[1][:value].to_i + 1 == cards[2][:value].to_i) && (cards[2][:value].to_i + 1 == cards[3][:value].to_i) && (cards[3][:value].to_i + 1 == cards[4][:value].to_i)
           { point: 5, highest: cards[4][:value].to_i, suit: suit_values[cards[4][:suit]] }
-          # 9 10 11 12 13
-          # 1 10 11 12 13
         else
           { point: 0, highest: 0, suit: 0 }
         end
@@ -284,7 +299,7 @@ module Api
         { point: 0, highest: 0, suit: 0 }
       end
 
-      def check_two_Pair(cards)
+      def check_two_pair(cards)
         suit_values = {
           'H' => 4,
           'D' => 3,
@@ -401,9 +416,6 @@ module Api
 
         { point: 1, highest: cards[4][:value].to_i, suit: suit_values[cards[4][:suit]] }
       end
-
-      private
-
       def newpoker_params; end
     end
   end
