@@ -3703,3 +3703,40 @@ Processing by Api::V1::NewpokersController#create as HTML
 Completed 400 Bad Request in 0ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 134)
 
 
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-08 10:53:17 +0700
+  [1m[36mActiveRecord::SchemaMigration Load (3.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["C1 C4 C7 D8 D9"], "newpoker"=>{"cards"=>["C1 C4 C7 D8 D9"]}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 10.6ms | Allocations: 517)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-08 10:53:18 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["C1 C4 C7 D8 D9"], "newpoker"=>{"cards"=>["C1 C4 C7 D8 D9"]}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 273)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-08 10:53:22 +0700
+Processing by Api::V1::NewpokersController#create as */*
+  Parameters: {"cards"=>["C1 C4 C7 D8 D12"], "newpoker"=>{"cards"=>["C1 C4 C7 D8 D12"]}}
+Completed 200 OK in 3ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 219)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-08 10:53:38 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"message"=>"H1 H2 D6 S7 S8", "newpoker"=>{}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 214)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-08 10:53:40 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"message"=>"H1 H2 D6 S7 A8", "newpoker"=>{}}
+Completed 400 Bad Request in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 132)
+
+
+Started POST "/api/v1/newpokers" for ::1 at 2024-05-08 10:53:43 +0700
+Processing by Api::V1::NewpokersController#create as HTML
+  Parameters: {"message"=>"H1 H2 D6 V7 A8", "newpoker"=>{}}
+Completed 400 Bad Request in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 133)
+
+
